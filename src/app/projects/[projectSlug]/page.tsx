@@ -1,7 +1,7 @@
+import Image from 'next/image'
 import '@/styles/project.css'
 import getContentBySlug from "@/utils/getContentBySlug"
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts"
-import ContinuousImage from "@/components/ContinuousImage"
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: any) {
 export default async function ProjectPage({ params }: any) {
   let frontMatter
   let html
-
+  
   const { projectSlug } = await params
   const content = await getContentBySlug(`posts/${projectSlug}`)
   frontMatter = content.frontMatter
@@ -46,14 +46,14 @@ export default async function ProjectPage({ params }: any) {
   return (
     <>
       <main className='prose prose-img:rounded prose-img:shadow-lg'>
-        {frontMatter.featuredImageCaption && (
+        {frontMatter.featuredImage && frontMatter.featuredImageCaption && (
           <figure>
-            <ContinuousImage className="featured-image" src={frontMatter.featuredImage || 'https://via.placeholder.com/640x400/e5e7eb/9ca3af?text=Project'} alt="Project featured image" width={640} height={400} radius={.25} shadow />
+            <Image className="featured-image" src={frontMatter.featuredImage} alt="Project featured image" width={640} height={400} />
             <figcaption>{frontMatter.featuredImageCaption}</figcaption>
           </figure>
         )}
-        {!frontMatter.featuredImageCaption && (
-          <ContinuousImage className="featured-image" src={frontMatter.featuredImage || 'https://via.placeholder.com/640x400/e5e7eb/9ca3af?text=Project'} alt="Project featured image" width={640} height={400} radius={.25} shadow />
+        {frontMatter.featuredImage && !frontMatter.featuredImageCaption && (
+          <Image className="featured-image" src={frontMatter.featuredImage} alt="Project featured image" width={640} height={400} />
         )}
         <h1 className="font-serif text-3xl">{frontMatter.title}</h1>
         <div className="post-markdown-container" dangerouslySetInnerHTML={{ __html: html }} />
