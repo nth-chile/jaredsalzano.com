@@ -1,18 +1,22 @@
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts"
 
-export async function getNextProject(projectSlug: string) {
-  const allProjectSlugs = [
-    'apple', 'blackstone', 'openai', 'xfinity', 'elephant-website',
-    'luupe', 'thought-catalog', 'studio-apartment', 'dojobase', 'linode', 'tolli', 'moni-jar', '826chi-2016', '826chi-2017',
-    'music-practice', 'sugarstream', 'fs-shows'
-  ]
+import { ALL_PROJECTS } from "@/data/projects"
 
-  const currentIndex = allProjectSlugs.indexOf(projectSlug)
-  if (currentIndex === -1 || currentIndex >= allProjectSlugs.length - 1) {
-    return null
+export async function getNextProject(projectSlug: string) {
+  const allProjectSlugs = ALL_PROJECTS
+  const posts = await getPreviewsForAllPosts()
+
+  const currentIndex = allProjectSlugs.indexOf(projectSlug as any)
+
+  // Start from the next project and look for the first one that is an article (has content)
+  for (let i = currentIndex + 1; i < allProjectSlugs.length; i++) {
+    const nextSlug = allProjectSlugs[i]
+    const nextPost = posts.find((p) => p.slug === nextSlug)
+
+    if (nextPost && nextPost.hasContent) {
+      return nextPost
+    }
   }
 
-  const nextSlug = allProjectSlugs[currentIndex + 1]
-  const posts = await getPreviewsForAllPosts()
-  return posts.find((post: any) => post.slug === nextSlug) || null
+  return null
 }

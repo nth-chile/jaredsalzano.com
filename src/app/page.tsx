@@ -1,7 +1,8 @@
 import "@/styles/home.css";
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts";
+import { EXPERIENCE_PROJECTS, CLIENT_PROJECTS, PASSION_PROJECTS } from "@/data/projects";
 import Footer from "@/components/Footer";
-import ProjectGrid from "@/components/ProjectGrid";
+
 import ArticlePreview from "@/components/ArticlePreview";
 import TestimonialsSlider from "@/components/TestimonialsSlider";
 import NavLink from "@/components/NavLink";
@@ -91,13 +92,7 @@ export default async function Home() {
             </p>
           </div>
           <div className="space-y-8 my-8">
-            {getPostsBySlug([
-              "openai",
-              "apple",
-              "comcast",
-              "blackstone",
-              "elephant-website",
-            ])
+            {getPostsBySlug([...EXPERIENCE_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
                 <ArticlePreview
@@ -117,17 +112,7 @@ export default async function Home() {
             </p>
           </div>
           <div className="space-y-8 my-8">
-            {getPostsBySlug([
-              "luupe",
-              "thought-catalog",
-              "studio-apartment",
-              "dojobase",
-              "linode",
-              "tolli",
-              "moni-jar",
-              "826chi-2016",
-              "826chi-2017",
-            ])
+            {getPostsBySlug([...CLIENT_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
                 <ArticlePreview
@@ -145,7 +130,7 @@ export default async function Home() {
             <h1>Passion Projects</h1>
           </div>
           <div className="space-y-8 my-8">
-            {getPostsBySlug(["music-practice", "sugarstream", "fs-shows"])
+            {getPostsBySlug([...PASSION_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
                 <ArticlePreview
