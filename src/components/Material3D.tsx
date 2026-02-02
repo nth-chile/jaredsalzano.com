@@ -1,3 +1,4 @@
+// Creates a subtle 3D material effect for images
 export default function Material3D() {
   return (
     <div

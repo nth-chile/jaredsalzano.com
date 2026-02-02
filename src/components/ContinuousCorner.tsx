@@ -1,5 +1,7 @@
 'use client'
 
+// Implements "continuous corners" (also known as squircles or superellipses)
+
 import React from 'react';
 
 function generateContinuousCornerPath(radius: number, smoothing: number) {

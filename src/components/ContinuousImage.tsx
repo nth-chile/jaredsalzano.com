@@ -1,5 +1,12 @@
 'use client'
 
+/*
+ * Image wrapper that applies:
+ * 1. Continuous corners
+ * 2. Optional drop shadow (handled via a wrapper div since clip-path cuts off standard box-shadow)
+ * 3. Optional 3D material overlay effect
+ */
+
 import Image, { ImageProps } from "next/image";
 import ContinuousCorner from "@/components/ContinuousCorner";
 import Material3D from "@/components/Material3D";
