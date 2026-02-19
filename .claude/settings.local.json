@@ -4,7 +4,8 @@
       "Bash(find:*)",
       "Bash(tree:*)",
       "Bash(cat:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git worktree:*)"
     ],
     "deny": [],
     "ask": []
