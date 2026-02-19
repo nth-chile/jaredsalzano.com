@@ -2,29 +2,23 @@
 
 // Implements "continuous corners" (also known as squircles or superellipses)
 
-import React from 'react';
+import React, { useRef, useState, useLayoutEffect } from 'react';
 
-function generateContinuousCornerPath(radius: number, smoothing: number) {
-  // Values are normalized 0-1 (act as percentages of width/height)
-  // radius: corner radius (0-0.5)
-  // smoothing: bezier control point distance multiplier
-  //   0.5522847498 ≈ circular arc
-  //   0.6 ≈ continuous curve (Apple-like)
-  const r = Math.min(0.5, Math.max(0, radius));
-  const c = r * smoothing; // control point distance from anchor
-
-  return `
-    M ${r}, 0
-    C ${r}, 0, ${1 - r}, 0, ${1 - r}, 0
-    C ${1 - r + c}, 0, 1, ${r - c}, 1, ${r}
-    C 1, ${r}, 1, ${1 - r}, 1, ${1 - r}
-    C 1, ${1 - r + c}, ${1 - r + c}, 1, ${1 - r}, 1
-    C ${1 - r}, 1, ${r}, 1, ${r}, 1
-    C ${r - c}, 1, 0, ${1 - r + c}, 0, ${1 - r}
-    C 0, ${1 - r}, 0, ${r}, 0, ${r}
-    C 0, ${r - c}, ${r - c}, 0, ${r}, 0
-    Z
-  `.replace(/\s+/g, ' ').trim();
+function generateContinuousCornerPath(width: number, height: number, radiusPx: number, smoothing: number) {
+  const r = Math.min(Math.min(width, height) / 2, Math.max(0, radiusPx));
+  const c = r * smoothing;
+  return [
+    `M ${r} 0`,
+    `L ${width - r} 0`,
+    `C ${width - r + c} 0 ${width} ${r - c} ${width} ${r}`,
+    `L ${width} ${height - r}`,
+    `C ${width} ${height - r + c} ${width - r + c} ${height} ${width - r} ${height}`,
+    `L ${r} ${height}`,
+    `C ${r - c} ${height} 0 ${height - r + c} 0 ${height - r}`,
+    `L 0 ${r}`,
+    `C 0 ${r - c} ${r - c} 0 ${r} 0`,
+    'Z',
+  ].join(' ');
 }
 
 interface ContinuousCornerProps {
@@ -45,31 +39,52 @@ const ContinuousCorner = ({
   borderColor = 'transparent'
 }: ContinuousCornerProps) => {
   const id = React.useId();
-  const path = generateContinuousCornerPath(radius, 1);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useLayoutEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    setSize({ width: el.offsetWidth, height: el.offsetHeight });
+    const observer = new ResizeObserver(() => {
+      setSize({ width: el.offsetWidth, height: el.offsetHeight });
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const hasSize = size.width > 0 && size.height > 0;
+  const radiusPx = radius * Math.sqrt(size.width * size.height);
+  const path = hasSize ? generateContinuousCornerPath(size.width, size.height, radiusPx, 1) : null;
+  const clipValue = hasSize ? `url(#${id})` : undefined;
 
   if (borderWidth > 0) {
     const innerId = `${id}-inner`;
-    // Calculate inner radius: reduce radius proportionally to border width
-    // This is approximate since we're working in normalized space
-    const innerRadius = Math.max(0, radius - (borderWidth * 0.002)); // adjust factor as needed
-    const innerPath = generateContinuousCornerPath(innerRadius, 1);
+    const innerW = Math.max(0, size.width - 2 * borderWidth);
+    const innerH = Math.max(0, size.height - 2 * borderWidth);
+    const innerRadiusPx = Math.max(0, radiusPx - borderWidth);
+    const innerPath = hasSize ? generateContinuousCornerPath(innerW, innerH, innerRadiusPx, 1) : null;
+    const innerClipValue = hasSize ? `url(#${innerId})` : undefined;
 
     return (
       <>
-        <svg width="0" height="0" style={{ position: 'absolute' }}>
-          <defs>
-            <clipPath id={id} clipPathUnits="objectBoundingBox">
-              <path d={path} />
-            </clipPath>
-            <clipPath id={innerId} clipPathUnits="objectBoundingBox">
-              <path d={innerPath} />
-            </clipPath>
-          </defs>
-        </svg>
+        {hasSize && (
+          <svg width="0" height="0" style={{ position: 'absolute' }}>
+            <defs>
+              <clipPath id={id}>
+                <path d={path!} />
+              </clipPath>
+              <clipPath id={innerId}>
+                <path d={innerPath!} />
+              </clipPath>
+            </defs>
+          </svg>
+        )}
         <div
+          ref={containerRef}
           style={{
-            clipPath: `url(#${id})`,
-            WebkitClipPath: `url(#${id})`,
+            clipPath: clipValue,
+            WebkitClipPath: clipValue,
             display: 'inline-block',
             padding: borderWidth,
             backgroundColor: borderColor,
@@ -79,8 +94,8 @@ const ContinuousCorner = ({
           <div
             className={className}
             style={{
-              clipPath: `url(#${innerId})`,
-              WebkitClipPath: `url(#${innerId})`
+              clipPath: innerClipValue,
+              WebkitClipPath: innerClipValue,
             }}
           >
             {children}
@@ -92,18 +107,21 @@ const ContinuousCorner = ({
 
   return (
     <>
-      <svg width="0" height="0" style={{ position: 'absolute' }}>
-        <defs>
-          <clipPath id={id} clipPathUnits="objectBoundingBox">
-            <path d={path} />
-          </clipPath>
-        </defs>
-      </svg>
+      {hasSize && (
+        <svg width="0" height="0" style={{ position: 'absolute' }}>
+          <defs>
+            <clipPath id={id}>
+              <path d={path!} />
+            </clipPath>
+          </defs>
+        </svg>
+      )}
       <div
+        ref={containerRef}
         className={className}
         style={{
-          clipPath: `url(#${id})`,
-          WebkitClipPath: `url(#${id})`,
+          clipPath: clipValue,
+          WebkitClipPath: clipValue,
           display: 'inline-block',
           ...style
         }}
