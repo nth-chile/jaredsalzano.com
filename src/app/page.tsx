@@ -77,13 +77,15 @@ export default async function Home() {
           <div className="page-container">
             <div className="prose prose-lg">
               <h1>Experience</h1>
-              <Image
-                src="/clients/huge-logo.png"
-                alt="Huge Inc. logo"
-                width={120}
-                height={40}
-                className="not-prose mt-16"
-              />
+              <div className="not-prose mt-16 -mb-10">
+                <ContinuousImage
+                  src="/clients/huge-logo.png"
+                  alt="Huge Inc. logo"
+                  width={120}
+                  height={40}
+                  radius={0.25}
+                />
+              </div>
               <h2>Huge Inc. & Elephant</h2>
               <p>
                 Over the past several years, I&apos;ve been fortunate to work with
