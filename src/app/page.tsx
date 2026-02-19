@@ -76,14 +76,14 @@ export default async function Home() {
         <section className="py-16" aria-label="Experience">
           <div className="page-container prose prose-lg">
             <h1>Experience</h1>
-            <h2>Huge Inc. & Elephant</h2>
             <Image
               src="/clients/huge-logo.png"
               alt="Huge Inc. logo"
               width={120}
               height={40}
-              className="not-prose"
+              className="not-prose mt-16"
             />
+            <h2>Huge Inc. & Elephant</h2>
             <p>
               Over the past several years, I&apos;ve been fortunate to work with
               sister companies{" "}
