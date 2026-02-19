@@ -158,7 +158,7 @@ export default async function Home() {
             </p>
           </div>
         </section>
-        <section className="bg-white py-16 border-t border-b border-gray-200" aria-label="Testimonials">
+        <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">
           <TestimonialsSlider />
         </section>
         <CTASection

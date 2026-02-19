@@ -1,12 +1,7 @@
 "use client"
 
-import { useState, useEffect, useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadEmittersPlugin } from "@tsparticles/plugin-emitters";
-import { loadSlim } from "@tsparticles/slim";
-import useMediaQuery from '@/utils/useMediaQuery';
 import 'swiper/css';
 import 'swiper/css/a11y';
 import 'swiper/css/effect-fade';
@@ -34,7 +29,8 @@ const testimonials = [
         id: 1,
         quote: "Jared was a smart choice to develop my personal portfolio. He accomplished all the things I was worried wouldn't work and was very patient with all my questions and feedback! He was very responsive and quick with updates. He even met with me in person to show me how to use the custom template he built in WordPress. The project met my vision and I am very happy with it. Thank you!",
         name: "Denise M.",
-        small: true
+        small: true,
+        secondLine: "Graphic design portfolio client",
     },
     {
         id: 54325,
@@ -53,6 +49,7 @@ const testimonials = [
         id: 3,
         quote: "Jared was easy to get a hold of and plan out the project with. He was flexible as we had to change things around mid-project and stuck to timelines and budget.",
         name: "Zach Holub",
+        secondLine: "Physical therapy website client",
     },
     {
         id: 23,
@@ -69,53 +66,7 @@ for (let i = 0; i < testimonials.length; i += 2) {
     slides.push(testimonials.slice(i, i + 2) as unknown as (typeof testimonials[number])[]);
 }
 
-const emitterDefaults = {
-    rate: { delay: 2, quantity: 3 },
-    particles: {
-        shape: { type: "star" },
-        color: { value: "random" },
-        size: {
-            value: { min: 5, max: 10 },
-            random: true
-        },
-        move: { speed: 2, outMode: "destroy" }
-    }
-};
-
 export default function TestimonialsSlider() {
-    const [init, setInit] = useState(false);
-    const { sm, md, lg } = useMediaQuery();
-
-    const starsXVals = useMemo(() => {
-        let left = -2.5, right = 102.5
-
-        if (sm) {
-            left = -1.7;
-            right = 101.7;
-        }
-
-        if (md) {
-            left = -1.3;
-            right = 101.3;
-        }
-
-        if (lg) {
-            left = -0.74;
-            right = 100.74;
-        }
-
-        return { left, right }
-    }, [sm, md, lg]);
-
-    useEffect(() => {
-        initParticlesEngine(async (engine) => {
-            await loadEmittersPlugin(engine);
-            await loadSlim(engine);
-        }).then(() => {
-            setInit(true);
-        });
-    }, []);
-
     return (
         <div className="testimonials-slider">
             <Swiper
@@ -132,10 +83,10 @@ export default function TestimonialsSlider() {
             >
                 {slides.map((pair, slideIndex) => (
                     <SwiperSlide key={slideIndex}>
-                        <div className={`py-12 pb-16 px-16 sm:px-20 grid gap-0 text-gray-800 ${pair.length > 1 ? 'sm:grid-cols-2 sm:[grid-template-rows:1fr_auto] sm:divide-x sm:divide-gray-200' : ''}`}>
+                        <div className={`pb-16 px-6 sm:px-20 grid gap-0 text-gray-800 ${pair.length > 1 ? 'max-lg:divide-y max-lg:divide-gray-400 lg:grid-cols-2 lg:[grid-template-rows:1fr_auto] lg:divide-x lg:divide-gray-400' : ''}`}>
                             {pair.map(({ linkHref, linkText, id, name, quote, secondLine, small = false }) => (
-                                <article key={id} className={`items-start px-4 sm:px-10 py-4 sm:py-0 ${pair.length > 1 ? 'sm:row-span-2 sm:grid sm:[grid-template-rows:subgrid]' : 'flex flex-col'}`}>
-                                    <blockquote className={`font-serif italic text-balance mb-6 ${pair.length > 1 ? 'text-lg' : small ? 'text-xl' : 'text-3xl'}`} style={{ maxWidth: pair.length > 1 ? undefined : small ? "800px" : "700px" }}>
+                                <article key={id} className={`items-start px-4 lg:px-10 max-lg:py-8 ${pair.length > 1 ? 'lg:row-span-2 lg:grid lg:[grid-template-rows:subgrid]' : 'flex flex-col'}`}>
+                                    <blockquote className={`font-serif italic text-balance mb-6 ${pair.length > 1 ? 'text-xl' : small ? 'text-2xl' : 'text-3xl'}`} style={{ maxWidth: pair.length > 1 ? undefined : small ? "800px" : "700px" }}>
                                         <p>"{quote}"</p>
                                     </blockquote>
                                     <cite className="not-italic self-start">
@@ -153,43 +104,7 @@ export default function TestimonialsSlider() {
                         </div>
                     </SwiperSlide>
                 ))}
-                {init && <Particles
-                    className="particles overflow-hidden"
-                    options={{
-                        fpsLimit: 60,
-                        fullScreen: { enable: false },
-                        particles: {
-                            move: { enable: true, outModes: { default: "destroy" } },
-                            number: { value: 0 },
-                            opacity: {
-                                animation: {
-                                    count: 1,
-                                    // decay: .5,
-                                    delay: { min: 0, max: 2 },
-                                    destroy: "min",
-                                    enable: true,
-                                    mode: "decrease",
-                                    speed: 2,
-                                    startValue: "max"
-                                },
-                                value: { max: 0.3, min: 0 }
-                            }
-                        },
-                        emitters: [
-                            {
-                                ...emitterDefaults,
-                                direction: "top-right",
-                                position: { x: starsXVals.left, y: 50 },
-                            },
-                            {
-                                ...emitterDefaults,
-                                direction: "top-left",
-                                position: { x: starsXVals.right, y: 50 },
-                            }
-                        ]
-                    }}
-                />
-                }
+
             </Swiper>
         </div>
     );
