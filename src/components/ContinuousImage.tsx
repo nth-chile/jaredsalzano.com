@@ -15,12 +15,14 @@ interface ContinuousImageProps extends ImageProps {
   radius: number;
   shadow?: boolean | string;
   material3d?: boolean;
+  children?: React.ReactNode;
 }
 
 export default function ContinuousImage({
   radius,
   shadow,
   material3d,
+  children,
   ...imageProps
 }: ContinuousImageProps) {
   // Check if this is a fill image that needs positioning context
@@ -35,6 +37,7 @@ export default function ContinuousImage({
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image {...imageProps} />
       {material3d && <Material3D />}
+      {children}
     </ContinuousCorner>
   );
 

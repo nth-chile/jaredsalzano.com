@@ -1,9 +1,9 @@
 export const EXPERIENCE_PROJECTS = [
-  'openai',
-  'apple',
-  'comcast',
   'blackstone',
+  'openai',
   'elephant-website',
+  'comcast',
+  'apple',
 ] as const;
 
 export const CLIENT_PROJECTS = [

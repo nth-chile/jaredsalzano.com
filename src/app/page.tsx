@@ -4,6 +4,7 @@ import { EXPERIENCE_PROJECTS, CLIENT_PROJECTS, PASSION_PROJECTS } from "@/data/p
 import Footer from "@/components/Footer";
 
 import ArticlePreview from "@/components/ArticlePreview";
+import ProjectsMarquee from "@/components/ProjectsMarquee";
 import TestimonialsSlider from "@/components/TestimonialsSlider";
 import NavLink from "@/components/NavLink";
 import ContactButton from "@/components/ContactButton";
@@ -72,8 +73,8 @@ export default async function Home() {
             </div>
           </div>
         </section>
-        <section className="page-container py-16" aria-label="Experience">
-          <div className="prose prose-lg">
+        <section className="py-16" aria-label="Experience">
+          <div className="page-container prose prose-lg">
             <h1>Experience</h1>
             <h2>Huge Inc. & Elephant</h2>
             <p>
@@ -91,19 +92,14 @@ export default async function Home() {
               collaborate with talented designers, developers, and strategists.
             </p>
           </div>
-          <div className="space-y-8 my-8">
-            {getPostsBySlug([...EXPERIENCE_PROJECTS])
-              .filter((post) => post !== undefined)
-              .map((post, index) => (
-                <ArticlePreview
-                  key={index}
-                  frontMatter={post.frontMatter}
-                  slug={post.slug}
-                  hasContent={post.hasContent}
-                />
-              ))}
+          <div className="my-8">
+            <ProjectsMarquee
+              posts={getPostsBySlug([...EXPERIENCE_PROJECTS]).filter(
+                (post) => post !== undefined
+              )}
+            />
           </div>
-          <div className="prose prose-lg mt-16">
+          <div className="page-container prose prose-lg mt-16">
             <h2>Direct Client Work</h2>
             <p>
               Over the years, I&apos;ve worked with a range of companies and
@@ -111,7 +107,7 @@ export default async function Home() {
               systems, and creative technology.
             </p>
           </div>
-          <div className="space-y-8 my-8">
+          <div className="page-container space-y-8 my-8">
             {getPostsBySlug([...CLIENT_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
