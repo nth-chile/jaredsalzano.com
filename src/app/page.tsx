@@ -22,7 +22,7 @@ export default async function Home() {
     <>
       <main className="relative bg-white/90 ">
         <section className="pb-16" aria-label="Intro">
-          <div className="max-w-4xl mx-auto px-10 sm:px-16">
+          <div className="page-container">
             <div className="pt-8 mb-8 flex gap-4 items-center justify-end">
               <NavLink href="/faq">FAQ</NavLink>
               <ContactButton />
@@ -74,30 +74,32 @@ export default async function Home() {
           </div>
         </section>
         <section className="py-16" aria-label="Experience">
-          <div className="page-container prose prose-lg">
-            <h1>Experience</h1>
-            <Image
-              src="/clients/huge-logo.png"
-              alt="Huge Inc. logo"
-              width={120}
-              height={40}
-              className="not-prose mt-16"
-            />
-            <h2>Huge Inc. & Elephant</h2>
-            <p>
-              Over the past several years, I&apos;ve been fortunate to work with
-              sister companies{" "}
-              <a href="https://www.hugeinc.com/" target="_blank">
-                Huge Inc.
-              </a>{" "}
-              &{" "}
-              <a href="https://www.elephant.is/" target="_blank">
-                Elephant
-              </a>{" "}
-              on a variety of contract projects. Each engagement has brought new
-              challenges, creative problem-solving, and the opportunity to
-              collaborate with talented designers, developers, and strategists.
-            </p>
+          <div className="page-container">
+            <div className="prose prose-lg">
+              <h1>Experience</h1>
+              <Image
+                src="/clients/huge-logo.png"
+                alt="Huge Inc. logo"
+                width={120}
+                height={40}
+                className="not-prose mt-16"
+              />
+              <h2>Huge Inc. & Elephant</h2>
+              <p>
+                Over the past several years, I&apos;ve been fortunate to work with
+                sister companies{" "}
+                <a href="https://www.hugeinc.com/" target="_blank">
+                  Huge Inc.
+                </a>{" "}
+                &{" "}
+                <a href="https://www.elephant.is/" target="_blank">
+                  Elephant
+                </a>{" "}
+                on a variety of contract projects. Each engagement has brought new
+                challenges, creative problem-solving, and the opportunity to
+                collaborate with talented designers, developers, and strategists.
+              </p>
+            </div>
           </div>
           <div className="my-8">
             <ProjectsMarquee
@@ -106,13 +108,15 @@ export default async function Home() {
               )}
             />
           </div>
-          <div className="page-container prose prose-lg mt-16">
-            <h2>Direct Client Work</h2>
-            <p>
-              Over the years, I&apos;ve worked with a range of companies and
-              organizations on projects spanning web development, design
-              systems, and creative technology.
-            </p>
+          <div className="page-container mt-16 mb-12">
+            <div className="prose prose-lg">
+              <h2>Direct Client Work</h2>
+              <p>
+                Over the years, I&apos;ve worked with a range of companies and
+                organizations on projects spanning web development, design
+                systems, and creative technology.
+              </p>
+            </div>
           </div>
           <div className="page-container space-y-8 my-8">
             {getPostsBySlug([...CLIENT_PROJECTS])
