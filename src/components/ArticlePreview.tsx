@@ -1,4 +1,5 @@
 import ContinuousImage from "@/components/ContinuousImage";
+import Link from "next/link";
 
 export default function ArticlePreview({
   frontMatter,
@@ -9,7 +10,7 @@ export default function ArticlePreview({
   slug: string;
   hasContent?: boolean;
 }) {
-  return (
+  const inner = (
     <div className="flex gap-8">
       <div className="relative flex-shrink-0 w-[500px]" style={{ aspectRatio: "16/9" }}>
         <ContinuousImage
@@ -26,17 +27,19 @@ export default function ArticlePreview({
         />
       </div>
       <div className="prose prose-lg flex-1">
-        <h3 className="text-2xl font-semibold mt-0">{frontMatter.title}</h3>
-        <p>
-          {frontMatter.excerpt}
-          {hasContent && (
-            <>
-              {" "}
-              <a href={`/projects/${slug}`}>Read more</a>
-            </>
-          )}
-        </p>
+        <h3 className="text-2xl font-semibold mt-0 group-hover:underline">{frontMatter.title}</h3>
+        <p>{frontMatter.excerpt}</p>
       </div>
     </div>
   );
+
+  if (hasContent) {
+    return (
+      <Link href={`/projects/${slug}`} className="block no-underline group">
+        {inner}
+      </Link>
+    );
+  }
+
+  return inner;
 }
