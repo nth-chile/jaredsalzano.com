@@ -81,8 +81,9 @@ export default async function Home() {
                 <ContinuousImage
                   src="/clients/huge-logo.png"
                   alt="Huge Inc. logo"
-                  width={120}
-                  height={40}
+                  width={316}
+                  height={316}
+                  className="h-32 w-auto"
                   radius={0.25}
                 />
               </div>
