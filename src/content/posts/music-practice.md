@@ -1,6 +1,8 @@
 ---
 title: Call & Response Music Practice Tool
 featuredImage: /posts/music-practice/music-practice-big.png
+featuredImageWidth: 1167
+featuredImageHeight: 683
 imgClass: object-center
 excerpt: A Duolingo-style app that plays melodies for you to play back on your instrument, with automatic pitch detection and adaptive difficulty levels.
 ---

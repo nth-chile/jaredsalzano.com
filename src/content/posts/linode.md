@@ -1,6 +1,8 @@
 ---
 title: Linode - Style Guide Website
 featuredImage: /posts/linode/linode-colors.png
+featuredImageWidth: 2376
+featuredImageHeight: 1476
 imgClass: object-center
 excerpt: Created a style guide website documenting Linode's design system, providing developers and editors with copy-pasteable, zero-dependency code blocks for maintaining consistency across their pages.
 ---

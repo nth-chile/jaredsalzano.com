@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import ContinuousImage from '@/components/ContinuousImage'
+import ArticleBody from '@/components/ArticleBody'
 import '@/styles/project.css'
 import getContentBySlug from "@/utils/getContentBySlug"
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts"
@@ -16,48 +17,45 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: any) {
   try {
     const { projectSlug } = await params
-    const content = await getContentBySlug(`posts/${projectSlug}`)
-
-    let title = `Jared Salzano`
-
-    if (content.frontMatter.title) {
-      title = `${content.frontMatter.title} - ${title}`
-    }
-
-    return { title };
+    const { frontMatter } = await getContentBySlug(`posts/${projectSlug}`)
+    const title = frontMatter.title ? `${frontMatter.title} - Jared Salzano` : 'Jared Salzano'
+    return { title }
   } catch (err) {
     throw err
   }
 }
 
 export default async function ProjectPage({ params }: any) {
-  let frontMatter
-  let html
-  
   const { projectSlug } = await params
-  const content = await getContentBySlug(`posts/${projectSlug}`)
-  frontMatter = content.frontMatter
-  html = content.html
+  const { frontMatter, content } = await getContentBySlug(`posts/${projectSlug}`)
 
-  if (!html || html.trim().length === 0) {
+  if (!content || content.trim().length === 0) {
     notFound()
   }
 
   return (
-    <>
-      <main className='prose prose-img:rounded prose-img:shadow-lg'>
-        {frontMatter.featuredImage && frontMatter.featuredImageCaption && (
-          <figure>
-            <Image className="featured-image" src={frontMatter.featuredImage} alt="Project featured image" width={640} height={400} />
+    <main className='prose'>
+      {frontMatter.featuredImage && frontMatter.featuredImageWidth && (
+        <figure>
+          <div className="not-prose" style={{ position: 'relative', aspectRatio: `${frontMatter.featuredImageWidth} / ${frontMatter.featuredImageHeight}` }}>
+            <ContinuousImage
+              src={frontMatter.featuredImage}
+              alt="Project featured image"
+              fill
+              sizes="(min-width: 820px) 65ch, 100vw"
+              className="object-cover"
+              radius={0.15}
+              shadow
+              material3d
+            />
+          </div>
+          {frontMatter.featuredImageCaption && (
             <figcaption>{frontMatter.featuredImageCaption}</figcaption>
-          </figure>
-        )}
-        {frontMatter.featuredImage && !frontMatter.featuredImageCaption && (
-          <Image className="featured-image" src={frontMatter.featuredImage} alt="Project featured image" width={640} height={400} />
-        )}
-        <h1 className="font-serif text-3xl">{frontMatter.title}</h1>
-        <div className="post-markdown-container" dangerouslySetInnerHTML={{ __html: html }} />
-      </main>
-    </>
+          )}
+        </figure>
+      )}
+      <h1 className="font-serif text-3xl">{frontMatter.title}</h1>
+      <ArticleBody content={content} />
+    </main>
   )
 }

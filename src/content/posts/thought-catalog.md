@@ -1,6 +1,8 @@
 ---
 title: Thought Catalog Agency - Agency Website
 featuredImage: /posts/thought-catalog/tc-globe.png
+featuredImageWidth: 2229
+featuredImageHeight: 1353
 imgClass: object-center
 excerpt: Developed a visually compelling agency website featuring unconventional layouts and animated infographics, built with Tailwind CSS to maintain design integrity across all screen sizes.
 ---

@@ -1,6 +1,8 @@
 ---
 title: Studio Apartment - Design Studio Website
 featuredImage: /posts/studio-apartment/hero6.png
+featuredImageWidth: 1536
+featuredImageHeight: 797
 imgClass: object-left-top
 excerpt: Built a design studio portfolio website using Jekyll and CSS Grid, generating case studies from Markdown files with responsive image loading for optimal performance.
 ---

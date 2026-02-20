@@ -1,6 +1,8 @@
 ---
 title: fs-shows - Concert Streaming Library
 featuredImage: /posts/fs-shows/fs-shows-4.png
+featuredImageWidth: 1315
+featuredImageHeight: 824
 imgClass: object-bottom-left
 excerpt: A flexible npm library that generates a browsing and streaming experience from a remote filesystem, using filename conventions to organize concerts.
 ---

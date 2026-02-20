@@ -1,6 +1,8 @@
 ---
 title: Tolli - Artist Networking App
 featuredImage: /posts/tolli/hero.png
+featuredImageWidth: 1895
+featuredImageHeight: 1101
 imgClass: object-left-top
 excerpt: Built an artist networking app designed to help creatives connect and collaborate on projects, prioritizing security considerations like content moderation and user privacy.
 ---
