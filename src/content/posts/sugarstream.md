@@ -2,6 +2,8 @@
 title: Sugarstream - Concert Streaming App
 tileImage: /posts/sugarstream/sugarmegs-cropped-depixelated.png
 featuredImage: /posts/sugarstream/sugarmegs.gif
+featuredImageWidth: 576
+featuredImageHeight: 199
 featuredImageCaption: Love this banner from SugarMegs.org
 imgClass: object-bottom-right
 excerpt: A streaming app for discovering and listening to classic concerts from SugarMegs, an enormous archive dating back to the 1920s.

@@ -1,6 +1,8 @@
 ---
 title: Dojobase - Professional Community Platform
 featuredImage: /posts/dojobase/hero-rotated-2.png
+featuredImageWidth: 2578
+featuredImageHeight: 1479
 imgClass: object-center
 excerpt: A professional community platform where users could create sub-communities specific to their industry, featuring sophisticated user access management, role-based permissions, and a fully-featured, Reddit-like discussion forum.
 ---

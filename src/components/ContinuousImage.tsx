@@ -22,6 +22,8 @@ interface ContinuousImageProps extends ImageProps {
   material3d?: boolean;
   children?: React.ReactNode;
   bleed?: boolean;
+  /** Makes the wrapper block-level at 100% width for natural-aspect-ratio images */
+  block?: boolean;
 }
 
 export default function ContinuousImage({
@@ -30,6 +32,7 @@ export default function ContinuousImage({
   material3d,
   children,
   bleed = true,
+  block,
   ...imageProps
 }: ContinuousImageProps) {
   const needsPositioning = "fill" in imageProps && imageProps.fill;
@@ -54,6 +57,7 @@ export default function ContinuousImage({
 
   const baseStyle = needsPositioning
     ? { position: "relative" as const, width: "100%", height: "100%" }
+    : block ? { display: "block" as const, width: "100%" }
     : {};
 
   const shadowFilter = shadow
@@ -74,6 +78,7 @@ export default function ContinuousImage({
   const withShadow = shadowFilter ? (
     <div style={needsPositioning
       ? { filter: shadowFilter, width: "100%", height: "100%" }
+      : block ? { filter: shadowFilter, display: "block" }
       : { filter: shadowFilter, display: "inline-block" }}>
       {corner}
     </div>

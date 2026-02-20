@@ -1,6 +1,8 @@
 ---
 title: The Luupe - Photography Platform
 featuredImage: /posts/luupe/luupe-article-rotated.png
+featuredImageWidth: 5543
+featuredImageHeight: 3313
 imgClass: object-left-top
 excerpt: Built a full-featured web platform and marketing blog for a global marketplace empowering hundreds of women and non-binary photographers across 50 countries to connect with brands like Sweetgreen, Peloton, and Facebook.
 ---
