@@ -30,6 +30,8 @@ export default function ProjectsMarquee({
           src={frontMatter.featuredImage}
           alt={frontMatter.title}
           fill
+          sizes="(min-width: 640px) 461px, 384px" // depends on sm:h-72 (288px) and h-60 (240px) * aspectRatio 1.6
+          priority
           className={`${frontMatter.imgClass || ""} object-cover`}
           radius={0.15}
           shadow
