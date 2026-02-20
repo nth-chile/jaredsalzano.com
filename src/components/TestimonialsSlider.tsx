@@ -10,7 +10,17 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import "@/styles/testimonials.css";
 
-const testimonials = [
+interface Testimonial {
+    id: number;
+    quote: string;
+    name: string;
+    small?: boolean;
+    secondLine?: string;
+    linkHref?: string;
+    linkText?: string;
+}
+
+const testimonials: Testimonial[] = [
     {
         id: 1234423,
         quote: "Jared was a pleasure to work with at our shared time at Elephant. We worked alongside each other with a wide range of web technologies, including React and React Native. I could count on Jared to raise important UX, engineering and feasibility considerations. Any team would be lucky to have him.",
@@ -58,12 +68,12 @@ const testimonials = [
         linkHref: "https://spearstreetcapital.com/",
         linkText: "spearstreetcapital.com"
     }
-] as const;
+];
 
 // Chunk into pairs for two-per-slide layout
-const slides: (typeof testimonials[number])[][] = [];
+const slides: Testimonial[][] = [];
 for (let i = 0; i < testimonials.length; i += 2) {
-    slides.push(testimonials.slice(i, i + 2) as unknown as (typeof testimonials[number])[]);
+    slides.push(testimonials.slice(i, i + 2));
 }
 
 export default function TestimonialsSlider() {

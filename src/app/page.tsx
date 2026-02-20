@@ -1,4 +1,3 @@
-import "@/styles/home.css";
 import linkedinImg from "../../public/linkedin.jpg";
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts";
 import { EXPERIENCE_PROJECTS, CLIENT_PROJECTS, PASSION_PROJECTS } from "@/data/projects";

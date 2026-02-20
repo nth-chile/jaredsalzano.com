@@ -5,7 +5,6 @@ import useMediaQuery from '@/utils/useMediaQuery';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadEmittersPlugin } from "@tsparticles/plugin-emitters";
 import { loadSlim } from "@tsparticles/slim";
-import "@/styles/testimonials.css";
 import "@/styles/marquee.css";
 
 const emitterDefaults = {

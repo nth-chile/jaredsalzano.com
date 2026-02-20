@@ -2,7 +2,6 @@ import getContentBySlug from "@/utils/getContentBySlug"
 import Footer from "@/components/Footer"
 import NavLink from "@/components/NavLink"
 import CTASection from "@/components/CTASection"
-import '../../styles/faq.css'
 
 const faqFilenames = [1, 2, 3, 4, 5, 6]
 
@@ -35,15 +34,13 @@ export default async function FAQPage() {
     return (
         <>
             <main className="relative bg-orange-50">
-                <nav className="prose page-container" style={{ maxWidth: "none" }}>
-                    <div className="mt-8 mb-10">
-                        <NavLink href="/">
-                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                            Back to home
-                        </NavLink>
-                    </div>
+                <nav className="prose page-container pt-8 pb-10" style={{ maxWidth: "none" }}>
+                    <NavLink href="/">
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Back to home
+                    </NavLink>
                 </nav>
 
                 <div className="page-container pb-8">
