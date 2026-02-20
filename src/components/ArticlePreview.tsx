@@ -11,7 +11,7 @@ export default function ArticlePreview({
   hasContent?: boolean;
 }) {
   const inner = (
-    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+    <div className="flex flex-col lg:flex-row gap-4 sm:gap-8 lg:gap-6">
       <div className="relative w-full lg:flex-shrink-0 lg:w-[420px]" style={{ aspectRatio: "16/9" }}>
         <ContinuousImage
           src={
