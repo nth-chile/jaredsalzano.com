@@ -120,7 +120,7 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <div className="page-container space-y-8 my-8">
+          <div className="page-container space-y-16 my-8">
             {getPostsBySlug([...CLIENT_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
@@ -138,7 +138,7 @@ export default async function Home() {
           <div className="prose prose-lg">
             <h1>Passion Projects</h1>
           </div>
-          <div className="space-y-8 my-8">
+          <div className="space-y-16 my-8">
             {getPostsBySlug([...PASSION_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
