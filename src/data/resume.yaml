@@ -1,0 +1,74 @@
+name: Jared Salzano
+website: jaredsalzano.com
+title: Sr. Full-Stack Engineer
+
+experience:
+  - company: Elephant (contracts)
+    period: "2018-2024"
+    description: Digital creative agency serving Fortune 50 brands. Client names anonymized due to NDAs
+    clients:
+      - name: '"Big Three" American TV network'
+        bullets:
+          - Evolved streaming service prototype through multiple development cycles guided by usability testing sessions. Built with React Native for tvOS
+      - name: FAANG client
+        bullets:
+          - Phased out legacy tooling, identified build-time bottlenecks responsible for 50% of code bundle, and replaced unmaintainable code with generic, composable functions to introduce flexibility to a rapidly changing codebase
+          - Contributed to internal NPM packages
+      - name: OpenAI
+        bullets:
+          - Built interactive widgets showcasing novel GenAI technology and published them with blog articles
+      - name: Fortune 50 cable provider
+        bullets:
+          - Developed in-store iPad experience to enhance conversion rates and standardize information delivery across locations
+          - Built internal web app with PostgreSQL, GraphQL, and Next.js to facilitate data-driven project prioritization through employee ratings of various metrics
+      - name: Leading global alternative asset manager
+        bullets:
+          - Engineered performant HTML animation system, writing core animation logic, and generating responsive ad variants that faithfully replicated video content for high-impact Google Ads campaign
+
+  - company: Linode (contract)
+    period: "2021"
+    description: Cloud hosting provider
+    bullets:
+      - Created UI library with documentation site to enable team to embed UI elements anywhere without dependencies
+
+  - company: Dojobase (contract)
+    period: "2018-2020"
+    description: Professional community platform
+    bullets:
+      - Architected and built full-scale MVP featuring sophisticated access management, protected resources, content creation tools, and discussion board
+
+  - company: "Hugo & Marie (contract)"
+    period: "2019"
+    description: Creative studio delivering art direction, design, and strategic concepts for global brands and artistic initiatives
+    bullets:
+      - Built fund page templates to optimize complex financial data presentation, driving investor engagement for an asset management firm
+
+  - company: Utility NYC · Lead Web Developer
+    period: "2018"
+    description: Mobile and Web development agency serving corporate clients and innovative startups
+    bullets:
+      - Resolved performance bottlenecks and created stages in a gamified enterprise healthcare app for MacOS and Windows (Electron)
+      - Built conference website connecting thousands of global advocates for women's health, rights, and gender equality
+      - Prepared Android version of React Native app initially built for iOS helping students navigate college
+      - Executed new design direction to modernize mining company's digital presence
+
+otherWork:
+  bullets:
+    - "Built and shipped multiple iterations of [startup's](https://theluupe.com/) marketing blog, establishing initial online presence, and contributed to buildout of their creative marketplace"
+    - Scaffolded and shipped initial iteration of schoolmealscoalition.org, which facilitated the involvement of 100+ countries and 130+ partners to expand access to nutritious meals for children worldwide
+
+passionProjects:
+  period: "2015–Present"
+  items:
+    - text: Gamified call-and-response music practice tool that listens to what you play
+      url: https://music-practice.jaredsalzano.com/
+    - text: JavaScript side-scrolling platform game
+      url: https://nth-chile.github.io/platos-search/
+    - text: Website for browsing and listening to classic concert recordings dating back to 1920
+      url: https://sugarstream.live/
+    - text: Music player that builds dynamic browsing experience from metadata extracted from filenames in cloud storage
+      url: https://github.com/nth-chile/fs-shows
+    - text: Multilingual thesaurus for language-learning word-a-day app
+
+tools: "React, Next.js, Tailwind, headless CMS, GCP, PostgreSQL"
+education: "University of Pittsburgh, B.A. English Writing — Dean's List 2013-15"

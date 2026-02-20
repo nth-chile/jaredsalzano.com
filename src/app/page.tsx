@@ -11,12 +11,15 @@ import ContactButton from "@/components/ContactButton";
 import CTASection from "@/components/CTASection";
 import ContinuousImage from "@/components/ContinuousImage";
 import Image from "next/image";
+import ResumeContent from "@/components/ResumeContent";
+import { getResume } from "@/lib/getResume";
 
 export default async function Home() {
   const posts = await getPreviewsForAllPosts();
   const postsMap = new Map(posts.map((post) => [post.slug, post]));
   const getPostsBySlug = (slugs: string[]) =>
     slugs.map((slug) => postsMap.get(slug)).filter(Boolean);
+  const resume = getResume();
 
   return (
     <>
@@ -154,16 +157,24 @@ export default async function Home() {
         </section>
 
         <section className="page-container py-16" aria-label="Resume">
-          <div className="prose prose-lg">
-            <h1>Resume</h1>
-            <p>
-              You can see my full resume{" "}
-              <a target="_blank" href="/resume.pdf">
-                here
-              </a>
-              .
-            </p>
+          <div className="mb-10">
+            <a
+              target="_blank"
+              href="/resume.pdf"
+              className="font-sans text-xs uppercase tracking-widest hover:underline inline-flex items-center gap-1 mb-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              view as pdf
+            </a>
+            <div className="prose prose-lg max-w-none">
+              <h1 className="m-0">Resume</h1>
+            </div>
           </div>
+          <ResumeContent resume={resume} />
         </section>
         <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">
           <TestimonialsSlider />
