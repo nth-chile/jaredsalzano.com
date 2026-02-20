@@ -88,7 +88,8 @@ const ContinuousCorner = ({
             display: 'inline-block',
             padding: borderWidth,
             backgroundColor: borderColor,
-            ...style
+            ...style,
+            opacity: hasSize ? (style.opacity ?? 1) : 0,
           }}
         >
           <div
@@ -123,7 +124,8 @@ const ContinuousCorner = ({
           clipPath: clipValue,
           WebkitClipPath: clipValue,
           display: 'inline-block',
-          ...style
+          ...style,
+          opacity: hasSize ? (style.opacity ?? 1) : 0,
         }}
       >
         {children}

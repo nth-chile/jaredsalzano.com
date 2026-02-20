@@ -1,4 +1,5 @@
 import "@/styles/home.css";
+import linkedinImg from "../../public/linkedin.jpg";
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts";
 import { EXPERIENCE_PROJECTS, CLIENT_PROJECTS, PASSION_PROJECTS } from "@/data/projects";
 import Footer from "@/components/Footer";
@@ -29,13 +30,15 @@ export default async function Home() {
             </div>
             <div className="mb-8">
               <ContinuousImage
-                src="/linkedin.jpg"
+                src={linkedinImg}
                 alt="Jared Salzano portrait"
                 width={190}
                 height={190}
+                placeholder="blur"
                 radius={0.25}
                 shadow
                 material3d
+                priority
               />
             </div>
             <div className="prose prose-lg">
