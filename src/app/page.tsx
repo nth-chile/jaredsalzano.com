@@ -158,6 +158,9 @@ export default async function Home() {
           </div>
         </section>
 
+        <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">
+          <TestimonialsSlider />
+        </section>
         <section className="page-container py-16" aria-label="Resume">
           <div className="mb-10">
             <a
@@ -177,9 +180,6 @@ export default async function Home() {
             </div>
           </div>
           <ResumeContent resume={resume} />
-        </section>
-        <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">
-          <TestimonialsSlider />
         </section>
         <CTASection
           heading="Let's work together"
