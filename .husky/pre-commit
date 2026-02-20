@@ -1,0 +1,7 @@
+#!/bin/sh
+# Regenerate public/resume.pdf if resume source files are staged
+if git diff --cached --name-only | grep -qE 'src/data/resume\.yaml|scripts/generate-resume-pdf\.ts'; then
+  echo "Resume source changed — regenerating PDF..."
+  npm run resume:pdf
+  git add public/resume.pdf
+fi
