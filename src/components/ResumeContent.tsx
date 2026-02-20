@@ -10,7 +10,7 @@ function renderWithLinks(text: string) {
   return parts.map((part, i) => {
     const match = part.match(/^\[(.+?)\]\((.+?)\)$/)
     if (match) {
-      return <a key={i} href={match[2]} className="underline">{match[1]}</a>
+      return <a key={i} href={match[2]} className="underline font-bold" target="_blank" rel="noopener noreferrer">{match[1]}</a>
     }
     return part
   })
@@ -24,7 +24,7 @@ export default function ResumeContent({ resume }: Props) {
         <div key={job.company} className="mt-8 first:mt-0">
           <div className="flex justify-between items-baseline gap-4 mb-1">
             <h3 className="m-0 text-xl font-bold leading-tight">{job.company}</h3>
-            <span className="text-sm text-inherit tabular-nums shrink-0">{job.period}</span>
+            <span className="text-sm font-bold tabular-nums shrink-0">{job.period}</span>
           </div>
           <p className="text-[14px] italic leading-snug mt-0.5 mb-1">{job.description}</p>
 
@@ -65,13 +65,13 @@ export default function ResumeContent({ resume }: Props) {
       <div className="mt-8">
         <div className="flex justify-between items-baseline gap-4 mb-1">
           <h3 className="m-0 text-xl font-bold leading-tight">Passion projects</h3>
-          <span className="text-sm text-inherit tabular-nums shrink-0">{resume.passionProjects.period}</span>
+          <span className="text-sm font-bold tabular-nums shrink-0">{resume.passionProjects.period}</span>
         </div>
         <ul className="list-disc ml-5 text-[15px] leading-snug">
           {resume.passionProjects.items.map((item, i) => (
             <li key={i}>
               {item.text}{item.url && (
-                <>{" "}<a href={item.url} className="underline">(link)</a></>
+                <>{" "}<a href={item.url} className="underline font-bold" target="_blank" rel="noopener noreferrer">(link)</a></>
               )}
             </li>
           ))}

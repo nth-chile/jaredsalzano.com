@@ -1,8 +1,6 @@
 /**
  * Generates public/resume.pdf from src/data/resume.yaml.
- * Styled to match the Pages document — no running server required.
- *
- * Usage: npm run resume:pdf
+ * See README for usage.
  */
 
 import puppeteer from 'puppeteer'
