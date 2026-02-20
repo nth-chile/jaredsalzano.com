@@ -13,4 +13,4 @@ Our band records every show we play and makes them available for streaming. I wa
 
 I built it as a library (and published it on npm) so it’s flexible, modular, and extensible. It uses backend adapters to work with your storage service of choice. It also works well on mobile, which is important for any music player.
 
-Plans for [improvements](https://github.com/nth-chile/fs-shows/issues).
+[See plans for improvements](https://github.com/nth-chile/fs-shows/issues).

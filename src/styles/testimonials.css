@@ -1,5 +1,11 @@
 .testimonials-slider {
-    --swiper-pagination-bottom: 8px;
+    .swiper-pagination-bullets {
+        margin-bottom: -20px;
+    }
+
+    .swiper-pagination-bullet {
+        border-radius: 2.9px;
+    }
 
     .swiper-pagination-bullet-active {
         background-color: var(--color-gray-800);

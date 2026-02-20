@@ -1,4 +1,4 @@
-import "@/styles/home.css";
+import linkedinImg from "../../public/linkedin.jpg";
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts";
 import { EXPERIENCE_PROJECTS, CLIENT_PROJECTS, PASSION_PROJECTS } from "@/data/projects";
 import Footer from "@/components/Footer";
@@ -32,13 +32,15 @@ export default async function Home() {
             </div>
             <div className="mb-8">
               <ContinuousImage
-                src="/linkedin.jpg"
+                src={linkedinImg}
                 alt="Jared Salzano portrait"
                 width={190}
                 height={190}
+                placeholder="blur"
                 radius={0.25}
                 shadow
                 material3d
+                priority
               />
             </div>
             <div className="prose prose-lg">
@@ -156,6 +158,9 @@ export default async function Home() {
           </div>
         </section>
 
+        <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">
+          <TestimonialsSlider />
+        </section>
         <section className="page-container py-16" aria-label="Resume">
           <div className="mb-10">
             <a
@@ -175,9 +180,6 @@ export default async function Home() {
             </div>
           </div>
           <ResumeContent resume={resume} />
-        </section>
-        <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">
-          <TestimonialsSlider />
         </section>
         <CTASection
           heading="Let's work together"
