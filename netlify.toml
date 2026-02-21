@@ -1,6 +1,9 @@
 [build]
-publish = "out/"
+publish = ".next/"
 command = "npm run build"
 
 [build.environment]
 HUSKY = "0"
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
