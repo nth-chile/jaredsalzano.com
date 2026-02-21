@@ -4,5 +4,5 @@ featuredImage: /posts/comcast/comcast.svg
 featuredImageWidth: 1600
 featuredImageHeight: 900
 imgClass: object-center
-excerpt: Built customer-facing features for their digital platform, improving user experience and conversion.
+excerpt: Evolved Peacock prototype through multiple development cycles guided by usability testing sessions. Built with React Native for tvOS.
 ---
