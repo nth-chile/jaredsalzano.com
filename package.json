@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "ts-lint": "tsc --noEmit",
     "resume:pdf": "tsx scripts/generate-resume-pdf.ts",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.4",
