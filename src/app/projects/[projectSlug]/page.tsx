@@ -1,8 +1,7 @@
-import ContinuousImage from '@/components/ContinuousImage'
-import ArticleBody from '@/components/ArticleBody'
 import '@/styles/project.css'
 import getContentBySlug from "@/utils/getContentBySlug"
 import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts"
+import Image from "next/image"
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -27,35 +26,25 @@ export async function generateMetadata({ params }: any) {
 
 export default async function ProjectPage({ params }: any) {
   const { projectSlug } = await params
-  const { frontMatter, content } = await getContentBySlug(`posts/${projectSlug}`)
+  const { frontMatter, content, html } = await getContentBySlug(`posts/${projectSlug}`)
 
   if (!content || content.trim().length === 0) {
     notFound()
   }
 
   return (
-    <main className='prose'>
-      {frontMatter.featuredImage && frontMatter.featuredImageWidth && (
+    <main className='prose prose-img:rounded prose-img:shadow-lg'>
+      {frontMatter.featuredImageCaption && (
         <figure>
-          <div className="not-prose" style={{ position: 'relative', aspectRatio: `${frontMatter.featuredImageWidth} / ${frontMatter.featuredImageHeight}` }}>
-            <ContinuousImage
-              src={frontMatter.featuredImage}
-              alt="Project featured image"
-              fill
-              sizes="(min-width: 820px) 65ch, 100vw"
-              className="object-cover"
-              radius={0.15}
-              shadow
-              material3d
-            />
-          </div>
-          {frontMatter.featuredImageCaption && (
-            <figcaption>{frontMatter.featuredImageCaption}</figcaption>
-          )}
+          <Image className="featured-image" src={frontMatter.featuredImage} alt="Project featured image" width={640} height={400} />
+          <figcaption>{frontMatter.featuredImageCaption}</figcaption>
         </figure>
       )}
+      {!frontMatter.featuredImageCaption && frontMatter.featuredImage && (
+        <Image className="featured-image" src={frontMatter.featuredImage} alt="Project featured image" width={640} height={400} />
+      )}
       <h1 className="font-serif text-3xl">{frontMatter.title}</h1>
-      <ArticleBody content={content} />
+      <div className="post-markdown-container" dangerouslySetInnerHTML={{ __html: html }} />
     </main>
   )
 }
