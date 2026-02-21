@@ -58,6 +58,7 @@ export default async function FAQPage() {
                 <CTASection
                     heading="Still have questions?"
                     description="I'd love to hear from you."
+                    card
                 />
             </main>
             <div className="relative bg-orange-50">
