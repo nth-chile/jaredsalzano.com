@@ -1,58 +1,58 @@
-"use client"
+// "use client"
 
-import { useState, useEffect, useMemo } from 'react';
-import useMediaQuery from '@/utils/useMediaQuery';
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadEmittersPlugin } from "@tsparticles/plugin-emitters";
-import { loadSlim } from "@tsparticles/slim";
+// import { useState, useEffect, useMemo } from 'react';
+// import useMediaQuery from '@/utils/useMediaQuery';
+// import Particles, { initParticlesEngine } from "@tsparticles/react";
+// import { loadEmittersPlugin } from "@tsparticles/plugin-emitters";
+// import { loadSlim } from "@tsparticles/slim";
 import "@/styles/marquee.css";
 
-const emitterDefaults = {
-    rate: { delay: 2, quantity: 3 },
-    particles: {
-        shape: { type: "star" },
-        color: { value: "random" },
-        size: {
-            value: { min: 5, max: 10 },
-            random: true
-        },
-        move: { speed: 2, outMode: "destroy" }
-    }
-};
+// const emitterDefaults = {
+//     rate: { delay: 2, quantity: 3 },
+//     particles: {
+//         shape: { type: "star" },
+//         color: { value: "random" },
+//         size: {
+//             value: { min: 5, max: 10 },
+//             random: true
+//         },
+//         move: { speed: 2, outMode: "destroy" }
+//     }
+// };
 
 export default function TestimonialsMarquee() {
-    const [init, setInit] = useState(false);
-    const { sm, md, lg } = useMediaQuery();
+    // const [init, setInit] = useState(false);
+    // const { sm, md, lg } = useMediaQuery();
 
-    const starsXVals = useMemo(() => {
-        let left = -2.5, right = 102.5
+    // const starsXVals = useMemo(() => {
+    //     let left = -2.5, right = 102.5
 
-        if (sm) {
-            left = -1.7;
-            right = 101.7;
-        }
+    //     if (sm) {
+    //         left = -1.7;
+    //         right = 101.7;
+    //     }
 
-        if (md) {
-            left = -1.3;
-            right = 101.3;
-        }
+    //     if (md) {
+    //         left = -1.3;
+    //         right = 101.3;
+    //     }
 
-        if (lg) {
-            left = -0.74;
-            right = 100.74;
-        }
+    //     if (lg) {
+    //         left = -0.74;
+    //         right = 100.74;
+    //     }
 
-        return { left, right }
-    }, [sm, md, lg]);
+    //     return { left, right }
+    // }, [sm, md, lg]);
 
-    useEffect(() => {
-        initParticlesEngine(async (engine) => {
-            await loadEmittersPlugin(engine);
-            await loadSlim(engine);
-        }).then(() => {
-            setInit(true);
-        });
-    }, []);
+    // useEffect(() => {
+    //     initParticlesEngine(async (engine) => {
+    //         await loadEmittersPlugin(engine);
+    //         await loadSlim(engine);
+    //     }).then(() => {
+    //         setInit(true);
+    //     });
+    // }, []);
 
 
     const items = [

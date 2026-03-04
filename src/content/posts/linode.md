@@ -15,4 +15,4 @@ The client suggested that we use Hugo to build the site. I gladly accepted the o
 
 This project laid the groundwork for a more scalable and consistent content strategy, reducing developer reliance and empowering non-technical editors to maintain design consistency across content.
 
-<img alt="Linode logo" src="/posts/linode/linode-1.png" />
+<img alt="Linode logo" src="/posts/linode/linode-1.webp" />

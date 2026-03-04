@@ -11,4 +11,4 @@ My brother asked me to help build the website for his design studio. We’d prev
 
 Generating the case studies from Markdown files allowed us to paste text and make edits without having to maintain (or look at) too much HTML, and responsive image loading features like `srcset` and `sizes` helped us ensure that images would be as crisp as possible without overloading mobile devices. When we previously built Gage’s personal portfolio, I used Masonry.js for the home page grid layout, but since the adoption of CSS Grid across browsers, I was able to replace Masonry.js with CSS Grid for better performance and a smoother visual effect on resize.
 
-<img alt="Studio Apartment website screenshot" src="/posts/studio-apartment/33.png" />
+<img alt="Studio Apartment website screenshot" src="/posts/studio-apartment/33.webp" />
