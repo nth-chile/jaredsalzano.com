@@ -96,6 +96,7 @@ function buildHtml(r: ResumeData) {
 <html>
 <head>
 <meta charset="utf-8">
+<title>${esc(r.name)} — Resume</title>
 <style>
   /* Arial 10pt, line-height 1.1, margins from Pages-exported PDF */
   ${fontFaces()}
