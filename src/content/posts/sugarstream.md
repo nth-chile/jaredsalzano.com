@@ -1,6 +1,6 @@
 ---
 title: Sugarstream - Concert Streaming App
-tileImage: /posts/sugarstream/sugarmegs-cropped-depixelated.png
+tileImage: /posts/sugarstream/sugarmegs-cropped-depixelated.webp
 featuredImage: /posts/sugarstream/sugarmegs.gif
 featuredImageWidth: 576
 featuredImageHeight: 199
