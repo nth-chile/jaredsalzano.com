@@ -94,7 +94,7 @@ export default async function Home() {
               </div>
               <h2>Huge Inc. & Elephant</h2>
               <p>
-                Over the past several years, I&apos;ve been fortunate to work with
+                I&apos;ve been fortunate to work with
                 sister companies{" "}
                 <a href="https://www.hugeinc.com/" target="_blank">
                   Huge Inc.
