@@ -1,8 +1,10 @@
 ---
 title: Linode - Style Guide Website
 featuredImage: /posts/linode/linode-colors.png
+featuredImageWidth: 2376
+featuredImageHeight: 1476
 imgClass: object-center
-order: 6
+excerpt: Created a style guide website documenting Linode's design system, providing developers and editors with copy-pasteable, zero-dependency code blocks for maintaining consistency across their pages.
 ---
 
 Before its acquisition by Akamai, Linode was a cloud service provider offering a variety of developer-friendly back-end web services. I helped them create a site that documented their style guide, providing developers and non-technical editors with a reference as well as copy-pasteable, zero-dependency code blocks for use in their pages.
@@ -13,4 +15,4 @@ The client suggested that we use Hugo to build the site. I gladly accepted the o
 
 This project laid the groundwork for a more scalable and consistent content strategy, reducing developer reliance and empowering non-technical editors to maintain design consistency across content.
 
-<img alt="Linode logo" src="/posts/linode/linode-1.png" />
+<img alt="Linode logo" src="/posts/linode/linode-1.webp" />

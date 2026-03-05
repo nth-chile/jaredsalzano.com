@@ -1,10 +1,12 @@
 ---
-title: Sugarstream - Concert Streaming App (Passion Project)
-tileImage: /posts/sugarstream/sugarmegs-cropped-depixelated.png
+title: Sugarstream - Concert Streaming App
+tileImage: /posts/sugarstream/sugarmegs-cropped-depixelated.webp
 featuredImage: /posts/sugarstream/sugarmegs.gif
+featuredImageWidth: 576
+featuredImageHeight: 199
 featuredImageCaption: Love this banner from SugarMegs.org
 imgClass: object-bottom-right
-order: 12
+excerpt: A streaming app for discovering and listening to classic concerts from SugarMegs, an enormous archive dating back to the 1920s.
 ---
 
 As a jam band fan, I’ve always used apps like [Relisten](https://relisten.net/) to listen to concerts. When I was learning to code and needed something to build, I made something similar—several iterations, over the years, depending on the tech or concepts I was curious about at the time.

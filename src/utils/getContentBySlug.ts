@@ -1,12 +1,12 @@
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeFormat from 'rehype-format'
-import rehypeRaw from 'rehype-raw'
-import rehypeStringify from 'rehype-stringify'
 import matter from "gray-matter"
 import { read } from "to-vfile"
 import path from "path"
+import { unified } from "unified"
+import remarkParse from "remark-parse"
+import remarkGfm from "remark-gfm"
+import remarkRehype from "remark-rehype"
+import rehypeRaw from "rehype-raw"
+import rehypeStringify from "rehype-stringify"
 
 export default async function getContentBySlug(slug: string) {
   const filePath = path.join(process.cwd(), `src/content/${slug}.md`)
@@ -15,16 +15,19 @@ export default async function getContentBySlug(slug: string) {
 
   const { content, data: frontMatter } = matter(String(vFile))
 
-  const html = await unified()
+  const processed = await unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
-    .use(rehypeFormat)
     .use(rehypeStringify)
     .process(content)
 
+  const html = String(processed)
+
   return {
     frontMatter,
-    html: String(html)
+    content,
+    html,
   }
 }

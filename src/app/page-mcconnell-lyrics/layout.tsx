@@ -1,4 +1,3 @@
-import "@/styles/global.css"
 import "@/styles/page-lyrics.css"
 import { ReactNode } from "react"
 import type { Metadata } from "next"

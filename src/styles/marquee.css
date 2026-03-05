@@ -1,52 +1,26 @@
 .marquee {
-    &:hover,
-    &:focus {
-        .marquee-group {
-            @media (hover: hover) {
-                animation-play-state: paused;
-            }
-        }
-    }
-  }
-  
-  .marquee-group {
-    animation: scroll 45s linear infinite;
-  }
-  
-  @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-  
-    100% {
-        transform: translateX(calc(-100% - var(--spacing) * 4));
-    }
-  }
-  
-  .projects-marquee {
-    a {
-      &:hover,
-      &:focus {
-        article:before,
-        h2 {
-          opacity: 1;
-        }
+  --marquee-gap: 1rem;
+
+  &:hover,
+  &:focus {
+    .marquee-group {
+      @media (hover: hover) {
+        animation-play-state: paused;
       }
     }
-  
-    article {
-      &:before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 10;
-        opacity: 0;
-        transition: opacity ease-in-out 50ms;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, .3) 100%);
-      }
-    }
-  
-    h2 {
-      transition: opacity ease-in-out 50ms;
-    }
   }
+}
+
+.marquee-group {
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}

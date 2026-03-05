@@ -1,0 +1,73 @@
+name: Jared Salzano
+website: jaredsalzano.com
+title: Sr. Full-Stack Engineer
+
+experience:
+  - company: Huge / Elephant (contracts for NBC, Apple, OpenAI, Comcast, Blackstone)
+    period: "2018-2026"
+    description: Global design and technology agency; part of Interpublic Group (IPG)
+    clients:
+      - name: NBC
+        bullets:
+          - Evolved Peacock prototypes through multiple development cycles informed by usability testing sessions. Built with React Native for tvOS
+      - name: Apple
+        bullets:
+          - Phased out legacy tooling on apple.com/tv-pr, identified build-time bottlenecks responsible for 50% of code bundle, and introduced flexibility through generic, composable functions; coordinated API design with Apple's internal CMS team
+          - Navigated browser rendering limitations to deliver glassmorphism and WebGL shader effects to exacting standards
+      - name: OpenAI
+        bullets:
+          - Built interactive widgets showcasing DALL-E and GPT-3 and published them alongside blog articles on openai.com
+      - name: Comcast / Xfinity
+        bullets:
+          - Developed in-store iPad experience deployed to 600+ Xfinity retail locations to standardize information delivery and drive conversion
+          - Built internal web app with PostgreSQL, GraphQL, and Next.js for data-driven project prioritization via employee ratings
+      - name: Blackstone
+        bullets:
+          - Created animated banner ad generator that produced responsive variants replicating video content for high-impact Google Ads campaign
+
+  - company: Linode (contract)
+    period: "2021"
+    description: Cloud hosting provider
+    bullets:
+      - Created UI library with documentation site to enable team to embed UI elements anywhere without dependencies
+
+  - company: Dojobase (contract)
+    period: "2018-2020"
+    description: Professional community platform
+    bullets:
+      - Architected and built full-scale MVP featuring sophisticated access management, protected resources, content creation tools, and discussion board
+
+  - company: "Hugo & Marie (contract)"
+    period: "2019"
+    description: Creative agency and artist bureau; clients include Gucci, Nike, and Rihanna
+    bullets:
+      - Built fund page templates for Aperture Investors to optimize complex financial data presentation, driving investor engagement
+
+  - company: Utility NYC · Lead Web Developer
+    period: "2018"
+    description: Mobile and Web development agency
+    bullets:
+      - Resolved performance bottlenecks and created stages in a gamified enterprise healthcare app for MacOS and Windows (Electron)
+      - Built Women Deliver conference website connecting thousands of delegates from 115+ countries advocating for gender equality and women's health
+      - Resolved Android compatibility issues across a React Native college navigation app originally developed for iOS
+
+otherWork:
+  bullets:
+    - "Built and shipped multiple iterations of [The Luupe's](https://theluupe.com/) marketing blog, establishing initial online presence, and contributed to buildout of their creative marketplace"
+    - Scaffolded and shipped schoolmealscoalition.org for the UN World Food Programme, supporting coordination across 100+ member countries and 130+ partners
+
+passionProjects:
+  period: "2015–Present"
+  items:
+    - text: Gamified call-and-response music practice tool that listens to what you play
+      url: https://music-practice.jaredsalzano.com/
+    - text: JavaScript side-scrolling platform game
+      url: https://nth-chile.github.io/platos-search/
+    - text: Website for browsing and listening to classic concert recordings dating back to 1920
+      url: https://sugarstream.live/
+    - text: Music player that builds dynamic browsing experience from metadata extracted from filenames in cloud storage
+      url: https://github.com/nth-chile/fs-shows
+    - text: Multilingual thesaurus for language-learning word-a-day app
+
+tools: "React, React Native, TypeScript, Next.js, Tailwind, GraphQL, Electron, GCP, PostgreSQL"
+education: "University of Pittsburgh, B.A. English Writing — Dean's List 2013-15"

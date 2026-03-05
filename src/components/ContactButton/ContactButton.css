@@ -1,8 +1,0 @@
-.contact-button {
-  background: linear-gradient(133deg, hsl(175, 100%, 70%), hsl(169, 94%, 63%));
-
-  &:hover,
-  &:focus {
-    background: linear-gradient(133deg, hsl(175, 100%, 80%), hsl(169, 94%, 68%));
-  }
-}

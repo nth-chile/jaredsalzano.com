@@ -5,7 +5,7 @@ import Script from 'next/script'
 // https://beta.nextjs.org/docs/api-reference/metadata
 export const metadata: Metadata = {
   title: "Jared Salzano",
-  description: "",
+  description: "Jared Salzano is a front-end-leaning full-stack developer with 8+ years of experience building high-performance web apps.",
   icons: {
     apple: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "Jared Salzano",
-    description: "",
+    description: "Jared Salzano is a front-end-leaning full-stack developer with 8+ years of experience building high-performance web apps.",
     images: [
       {
         url: "https://jaredsalzano.com/meta-img.png",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    description: "",
+    description: "Jared Salzano is a front-end-leaning full-stack developer with 8+ years of experience building high-performance web apps.",
     images: ["https://jaredsalzano.com/meta-img.png"],
     title: "Jared Salzano"
   }

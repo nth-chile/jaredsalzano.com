@@ -10,8 +10,9 @@ export default async function getPreviewsForAllPosts() {
 
   return fileNames.map((fileName) => {
     const vFile = readSync(`${pathToContentFolder}${fileName}`)
-    const { data: frontMatter } = matter(String(vFile))
+    const { data: frontMatter, content } = matter(String(vFile))
     const slug = fileName.replace(/\.md$/, '')
-    return { frontMatter, slug }
+    const hasContent = content.trim().length > 0
+    return { frontMatter, slug, hasContent }
   })
 }

@@ -1,8 +1,10 @@
 ---
 title: Thought Catalog Agency - Agency Website
 featuredImage: /posts/thought-catalog/tc-globe.png
+featuredImageWidth: 2229
+featuredImageHeight: 1353
 imgClass: object-center
-order: 2
+excerpt: Developed a visually compelling agency website featuring unconventional layouts and animated infographics, built with Tailwind CSS to maintain design integrity across all screen sizes.
 ---
 
 Having turned many of their own ideas into successful platforms through strategic marketing and content creation, Thought Catalog launched Thought Catalog Agency to help others achieve similar growth. They needed a website that was both visually compelling and highly functional.
