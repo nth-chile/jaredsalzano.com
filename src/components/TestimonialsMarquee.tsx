@@ -60,7 +60,9 @@ export default function TestimonialsMarquee() {
             id: 2,
             quote: "Incredibly professional and nice guy to work with. Genuinely went above and beyond the product requirements.",
             name: "Avi Muchnick",
-            secondLine: "Cofounder of Aviary (acquired by Adobe)"
+            secondLine: "Cofounder of Aviary (acquired by Adobe)",
+            logo: "/clients/adobe.svg",
+            logoAlt: "Adobe"
         },
         {
             id: 1,
@@ -73,7 +75,9 @@ export default function TestimonialsMarquee() {
             quote: "Jared has been a great resource for our firm. He promptly executes on updates to our site and is a pleasure to work with.",
             name: "Susie Baker",
             linkHref: "https://spearstreetcapital.com/",
-            linkText: "spearstreetcapital.com"
+            linkText: "spearstreetcapital.com",
+            logo: "/clients/spearstreet.svg",
+            logoAlt: "Spear Street Capital"
         },
         {
             id: 3,
@@ -81,7 +85,7 @@ export default function TestimonialsMarquee() {
             name: "Zach Holub",
         }
     ]
-        .map(({ linkHref, linkText, id, name, quote, secondLine, small = false }) =>
+        .map(({ linkHref, linkText, id, name, quote, secondLine, small = false, logo, logoAlt }) =>
             <article
                 key={id}
                 className="bg-white/80 rounded-ss p-4 sm:px-6 flex flex-col justify-between shadow text-(--tw-prose-body) max-w-[65ch]"
@@ -98,6 +102,7 @@ export default function TestimonialsMarquee() {
                             <path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="black" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" />
                         </svg>
                     </a>}
+                    {logo && <img src={logo} alt={logoAlt} className="h-5 w-auto mt-1.5 grayscale opacity-40" />}
                 </cite>
             </article>
         )
