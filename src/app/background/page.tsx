@@ -5,67 +5,57 @@ import CTASection from "@/components/CTASection"
 import ResumeContent from "@/components/ResumeContent"
 import { getResume } from "@/lib/getResume"
 import getContentBySlug from "@/utils/getContentBySlug"
-import BackgroundTOC from "./BackgroundTOC"
 import { logoifyHtml } from "@/components/InlineLogo"
 
 const faqFilenames = [1, 2, 3, 4, 5, 6]
+const SHOW_FAQ = false
 
 export function generateMetadata() {
-    return { title: "Background - Jared Salzano" }
+    return { title: "Resume - Jared Salzano" }
 }
 
 export default async function BackgroundPage() {
     const resume = getResume()
 
     const faq: { question: string, answer: string, filename: number }[] = []
-    await Promise.all(faqFilenames.map(async (filename) => {
-        const content = await getContentBySlug(`faq/${filename}`)
-        faq.push({
-            filename,
-            question: content.frontMatter.question,
-            answer: content.html
-        })
-    }))
-    faq.sort((a, b) => a.filename - b.filename)
-
-    const sections = [
-        { id: "faq", label: "FAQ" },
-        { id: "resume", label: "Resume" },
-        { id: "contact", label: "Contact" },
-    ]
+    if (SHOW_FAQ) {
+        await Promise.all(faqFilenames.map(async (filename) => {
+            const content = await getContentBySlug(`faq/${filename}`)
+            faq.push({
+                filename,
+                question: content.frontMatter.question,
+                answer: content.html
+            })
+        }))
+        faq.sort((a, b) => a.filename - b.filename)
+    }
 
     return (
         <>
-            <main className="relative bg-white/90 has-toc">
+            <main className="relative bg-white/90">
                 <div className="page-container">
                     <div className="pt-8 mb-8 flex gap-4 items-center justify-end">
                         <NavLink href="/">Overview</NavLink>
-                        <NavLink href="/background">Background</NavLink>
+                        <NavLink href="/background">Resume</NavLink>
                         <ContactButton />
                     </div>
                 </div>
 
-                <BackgroundTOC sections={sections} />
+                {SHOW_FAQ && (
+                    <section className="page-container py-16 scroll-mt-4" aria-label="FAQ">
+                        <div className="prose prose-lg">
+                            <h2>Frequently asked questions</h2>
+                            {faq.map(({ question, answer }, index) => (
+                                <div key={index}>
+                                    <h3>{question}</h3>
+                                    <div dangerouslySetInnerHTML={{ __html: logoifyHtml(answer) }} />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
 
-                <section className="page-container pb-16">
-                    <div className="prose prose-lg">
-                        <h1>Background</h1>
-                    </div>
-                </section>
-
-                <section id="faq" className="page-container py-16 scroll-mt-4" aria-label="FAQ">
-                    <div className="prose prose-lg">
-                        <h2>Frequently asked questions</h2>
-                        {faq.map(({ question, answer }, index) => (
-                            <div key={index}>
-                                <h3>{question}</h3>
-                                <div dangerouslySetInnerHTML={{ __html: logoifyHtml(answer) }} />
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                <section id="resume" className="page-container py-16 scroll-mt-4" aria-label="Resume">
+                <section className="page-container py-16">
                     <div className="mb-10">
                         <a
                             target="_blank"
@@ -86,25 +76,23 @@ export default async function BackgroundPage() {
                     <ResumeContent resume={resume} />
                 </section>
 
-                <div id="contact">
-                    <CTASection
-                        heading="Let's work together"
-                        description={
-                            <>
-                                I&apos;m{" "}
-                                <b className="font-[500]">
-                                    actively looking for a full-time role
-                                </b>{" "}
-                                at a thoughtful, purpose-driven startup—NYC or remote—as a senior
-                                front-end or full-stack developer. I&apos;m also{" "}
-                                <b className="font-[500]">
-                                    currently taking on select freelance projects
-                                </b>
-                                , always excited to work with new people on fresh challenges.
-                            </>
-                        }
-                    />
-                </div>
+                <CTASection
+                    heading="Let's work together"
+                    description={
+                        <>
+                            I&apos;m{" "}
+                            <b className="font-[500]">
+                                actively looking for a full-time role
+                            </b>{" "}
+                            at a thoughtful, purpose-driven startup—NYC or remote—as a senior
+                            front-end or full-stack developer. I&apos;m also{" "}
+                            <b className="font-[500]">
+                                currently taking on select freelance projects
+                            </b>
+                            , always excited to work with new people on fresh challenges.
+                        </>
+                    }
+                />
             </main>
             <div className="relative bg-white/90">
                 <Footer />
