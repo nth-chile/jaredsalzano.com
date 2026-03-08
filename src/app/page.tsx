@@ -10,6 +10,7 @@ import NavLink from "@/components/NavLink";
 import ContactButton from "@/components/ContactButton";
 import CTASection from "@/components/CTASection";
 import ContinuousImage from "@/components/ContinuousImage";
+import L from "@/components/InlineLogo";
 
 export default async function Home() {
   const posts = await getPreviewsForAllPosts();
@@ -48,7 +49,10 @@ export default async function Home() {
                 </b>{" "}
                 shipping maintainable,
                 high-performance web apps for fast-moving startups, creative
-                agencies, and FAANG & Fortune 50 companies. I take ownership of
+                agencies, and companies like{" "}
+                <span className="whitespace-nowrap"><L name="apple" />{" "}Apple</span>,{" "}
+                <span className="whitespace-nowrap"><L name="openai" />{" "}OpenAI</span>,
+                and <span className="whitespace-nowrap"><L name="comcast" />{" "}Comcast</span>. I take ownership of
                 projects from planning to deployment, collaborate effectively
                 across teams, and love solving complex technical challenges.
                 Lately, I&apos;ve been exploring LLMs and emerging AI cloud

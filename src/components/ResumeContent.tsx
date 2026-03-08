@@ -1,4 +1,5 @@
 import type { ResumeData } from '@/types/resume'
+import L from '@/components/InlineLogo'
 
 interface Props {
   resume: ResumeData
@@ -32,7 +33,7 @@ export default function ResumeContent({ resume }: Props) {
             <ul className="list-disc ml-5 text-[15px] leading-snug space-y-0">
               {job.clients.map((client) => (
                 <li key={client.name} className="italic">
-                  {client.name}
+{client.name}
                   <ul className="list-disc ml-5 not-italic">
                     {client.bullets.map((bullet, i) => (
                       <li key={i}>{renderWithLinks(bullet)}</li>
@@ -79,7 +80,17 @@ export default function ResumeContent({ resume }: Props) {
       </div>
 
       <div className="mt-8 text-[15px] leading-snug space-y-1">
-        <p><strong>Preferred development tools:</strong> {resume.tools}</p>
+        <p><strong>Preferred development tools:</strong>{" "}
+          <span className="whitespace-nowrap"><L name="react" /> React</span>,{" "}
+          <span className="whitespace-nowrap"><L name="react" /> React Native</span>,{" "}
+          <span className="whitespace-nowrap"><L name="typescript" /> TypeScript</span>,{" "}
+          <span className="whitespace-nowrap"><L name="nextjs" /> Next.js</span>,{" "}
+          <span className="whitespace-nowrap"><L name="tailwind" /> Tailwind</span>,{" "}
+          <span className="whitespace-nowrap"><L name="graphql" /> GraphQL</span>,{" "}
+          <span className="whitespace-nowrap"><L name="electron" /> Electron</span>,{" "}
+          <span className="whitespace-nowrap"><L name="gcp" /> GCP</span>,{" "}
+          <span className="whitespace-nowrap"><L name="postgresql" /> PostgreSQL</span>
+        </p>
         <p><strong>Education:</strong> {resume.education}</p>
       </div>
 
