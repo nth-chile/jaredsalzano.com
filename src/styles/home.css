@@ -1,3 +1,47 @@
+/* Article preview tiles: text below in 1-col, hover overlay in 2-col (lg+) */
+.article-preview {
+  .article-preview-overlay,
+  .article-preview-blur {
+    display: none;
+  }
+
+  .article-preview-below {
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+
+    @media (width >= 768px) {
+      padding-top: 0.75rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media (width >= 1024px) and (hover: hover) {
+    .article-preview-overlay,
+    .article-preview-blur {
+      display: flex;
+    }
+
+    .article-preview-below {
+      display: none;
+    }
+  }
+}
+
+/* Marquee: show on hover devices, static grid on touch */
+.marquee-touch-grid {
+  display: none;
+}
+
+@media (hover: none) {
+  .marquee-hover {
+    display: none;
+  }
+
+  .marquee-touch-grid {
+    display: grid;
+  }
+}
+
 .project-grid {
   article {
     @media (hover: hover) {
