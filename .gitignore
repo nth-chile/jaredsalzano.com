@@ -25,3 +25,5 @@ next-env.d.ts
 
 # conductor
 /trees/
+.playwright-mcp/
+toc-*.png
