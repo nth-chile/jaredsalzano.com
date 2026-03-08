@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 interface Section {
     id: string
@@ -11,39 +11,46 @@ export default function BackgroundTOC({ sections }: { sections: Section[] }) {
     const [activeId, setActiveId] = useState<string | null>(null)
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries.filter((e) => e.isIntersecting)
-                if (visible.length > 0) {
-                    setActiveId(visible[0].target.id)
+        const getActiveSection = () => {
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sections[i].id)
+                if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) {
+                    return sections[i].id
                 }
-            },
-            { rootMargin: "-10% 0px -80% 0px" }
-        )
+            }
+            return null
+        }
 
-        sections.forEach(({ id }) => {
-            const el = document.getElementById(id)
-            if (el) observer.observe(el)
-        })
+        const onScroll = () => {
+            setActiveId(getActiveSection())
+        }
 
-        return () => observer.disconnect()
+        window.addEventListener("scroll", onScroll, { passive: true })
+        onScroll()
+
+        return () => window.removeEventListener("scroll", onScroll)
     }, [sections])
+
+    const handleClick = useCallback((id: string) => {
+        setActiveId(id)
+    }, [])
 
     return (
         <>
-            {/* Mobile + tablet: sticky horizontal bar */}
+            {/* Mobile + tablet: sticky horizontal tabs */}
             <nav
-                className="xl:hidden sticky top-0 z-30 bg-white/90 backdrop-blur-sm border-b border-gray-200 py-3 px-5 flex gap-2 overflow-x-auto"
+                className="md:hidden sticky top-0 z-30 bg-white/80 backdrop-blur-md py-3 px-[20px] sm:px-[60px] flex gap-6 overflow-x-auto"
                 aria-label="Table of contents"
             >
                 {sections.map(({ id, label }) => (
                     <a
                         key={id}
                         href={`#${id}`}
-                        className={`text-sm font-medium py-1 px-3 rounded-full border transition-colors duration-200 no-underline whitespace-nowrap ${
+                        onClick={() => handleClick(id)}
+                        className={`text-sm font-medium py-1.5 no-underline whitespace-nowrap transition-all duration-200 border-b-2 ${
                             activeId === id
-                                ? "bg-black text-white border-black"
-                                : "bg-white text-gray-600 border-gray-300"
+                                ? "text-black border-black"
+                                : "text-gray-400 border-transparent hover:text-gray-600"
                         }`}
                     >
                         {label}
@@ -51,21 +58,22 @@ export default function BackgroundTOC({ sections }: { sections: Section[] }) {
                 ))}
             </nav>
 
-            {/* Desktop (xl+): fixed left sidebar, right-aligned text with right border */}
+            {/* Desktop: fixed left sidebar with active indicator */}
             <nav
-                className="hidden xl:block fixed top-1/2 -translate-y-1/2 z-30"
-                style={{ left: "max(1rem, calc((100vw - 1200px) / 2 - 7rem))" }}
+                className="hidden md:block fixed top-1/2 -translate-y-1/2 z-30 w-[80px]"
+                style={{ left: "calc(max(0px, (100vw - 1200px) / 2) + var(--toc-offset, 40px))" }}
                 aria-label="Table of contents"
             >
-                <ul className="list-none m-0 p-0 border-r-2 border-gray-200 pr-3 text-right">
+                <ul className="list-none m-0 p-0 text-right">
                     {sections.map(({ id, label }) => (
-                        <li key={id} className="my-2">
+                        <li key={id} className="my-1">
                             <a
                                 href={`#${id}`}
-                                className={`text-sm no-underline transition-colors duration-200 ${
+                                onClick={() => handleClick(id)}
+                                className={`text-[13px] no-underline transition-all duration-200 inline-block py-1 pr-3 border-r-2 ${
                                     activeId === id
-                                        ? "text-black font-semibold"
-                                        : "text-gray-400 hover:text-gray-600"
+                                        ? "text-black border-black"
+                                        : "text-gray-300 hover:text-gray-500 border-transparent"
                                 }`}
                             >
                                 {label}
