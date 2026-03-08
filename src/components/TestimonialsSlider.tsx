@@ -18,6 +18,9 @@ interface Testimonial {
     secondLine?: string;
     linkHref?: string;
     linkText?: string;
+    logo?: string;
+    logoAlt?: string;
+    logoWide?: boolean;
 }
 
 const testimonials: Testimonial[] = [
@@ -27,13 +30,18 @@ const testimonials: Testimonial[] = [
         name: "Brittney Kernan",
         small: true,
         secondLine: "Team Leader & Software Engineer at Notion",
+        logo: "/clients/notion.svg",
+        logoAlt: "Notion",
     },
     {
         id: 4234,
         quote: "Jared is one of the most creative and determined developers you will ever meet. He brings an all-world mindset to his programming, and is unflappable against challenges and roadblocks as they come up. He is an excellent choice for a development project.",
         name: "Adam Spunberg",
         small: true,
-        secondLine: "Global Head of Operations, 100+ Accelerator, AB InBev"
+        secondLine: "Global Head of Operations, 100+ Accelerator, AB InBev",
+        logo: "/clients/abinbev.svg",
+        logoAlt: "AB InBev",
+        logoWide: true,
     },
     {
         id: 1,
@@ -48,12 +56,16 @@ const testimonials: Testimonial[] = [
         name: "David Skara",
         small: true,
         secondLine: "Product Manager at Elephant",
+        logo: "/clients/elephant.png",
+        logoAlt: "Elephant",
     },
     {
         id: 2,
         quote: "Incredibly professional and nice guy to work with. Genuinely went above and beyond the product requirements.",
         name: "Avi Muchnick",
         secondLine: "Cofounder of Aviary (acquired by Adobe)",
+        logo: "/clients/adobe.svg",
+        logoAlt: "Adobe",
     },
     {
         id: 3,
@@ -66,7 +78,9 @@ const testimonials: Testimonial[] = [
         quote: "Jared has been a great resource for our firm. He promptly executes on updates to our site and is a pleasure to work with.",
         name: "Susie Baker",
         linkHref: "https://spearstreetcapital.com/",
-        linkText: "spearstreetcapital.com"
+        linkText: "spearstreetcapital.com",
+        logo: "/clients/spearstreet.svg",
+        logoAlt: "Spear Street Capital",
     }
 ];
 
@@ -94,7 +108,7 @@ export default function TestimonialsSlider() {
                 {slides.map((pair, slideIndex) => (
                     <SwiperSlide key={slideIndex}>
                         <div className={`pb-16 px-6 sm:px-20 grid gap-0 text-gray-800 ${pair.length > 1 ? 'max-lg:divide-y max-lg:divide-gray-400 lg:grid-cols-2 lg:[grid-template-rows:1fr_auto] lg:divide-x lg:divide-gray-400' : ''}`}>
-                            {pair.map(({ linkHref, linkText, id, name, quote, secondLine, small = false }) => (
+                            {pair.map(({ linkHref, linkText, id, name, quote, secondLine, small = false, logo, logoAlt, logoWide }) => (
                                 <article key={id} className={`items-start px-4 lg:px-10 max-lg:py-8 ${pair.length > 1 ? 'lg:row-span-2 lg:grid lg:[grid-template-rows:subgrid]' : 'flex flex-col'}`}>
                                     <blockquote className={`font-serif italic text-balance mb-6 ${pair.length > 1 ? 'text-xl' : small ? 'text-2xl' : 'text-3xl'}`} style={{ maxWidth: pair.length > 1 ? undefined : small ? "800px" : "700px" }}>
                                         <p>"{quote}"</p>
@@ -108,6 +122,7 @@ export default function TestimonialsSlider() {
                                                 <path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="black" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" />
                                             </svg>
                                         </a>}
+                                        {logo && <img src={logo} alt={logoAlt} className={`w-auto mt-2 grayscale opacity-40 ${logoWide ? 'h-5' : 'h-6'}`} />}
                                     </cite>
                                 </article>
                             ))}
