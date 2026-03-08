@@ -25,7 +25,7 @@ export default async function Home() {
           <div className="page-container">
             <div className="pt-8 mb-8 flex gap-4 items-center justify-end">
               <NavLink href="/">Overview</NavLink>
-              <NavLink href="/background">Background</NavLink>
+              <NavLink href="/background">Resume</NavLink>
               <ContactButton />
             </div>
             <div className="mb-8">
