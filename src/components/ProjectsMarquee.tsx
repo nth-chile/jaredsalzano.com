@@ -1,5 +1,6 @@
 import ContinuousImage from "@/components/ContinuousImage";
 import ArticlePreview from "@/components/ArticlePreview";
+import Marquee from "@/components/Marquee";
 import "@/styles/marquee.css";
 import "@/styles/home.css";
 
@@ -79,15 +80,15 @@ export default function ProjectsMarquee({
   return (
     <>
       {/* Hover devices: scrolling marquee */}
-      <div
-        className={`marquee-hover marquee projects-marquee overflow-hidden flex gap-8 py-10 ${className}`}
+      <Marquee
+        className={`marquee-hover marquee projects-marquee flex gap-8 py-10 ${className}`}
         style={{ "--marquee-gap": "2rem" } as React.CSSProperties}
       >
         <div className="shrink-0 flex gap-8 marquee-group">{marqueeItems}</div>
         <div aria-hidden className="shrink-0 flex gap-8 marquee-group">
           {marqueeItems}
         </div>
-      </div>
+      </Marquee>
 
       {/* Touch devices: static grid with text below */}
       <div className="marquee-touch-grid page-container grid-cols-1 lg:grid-cols-2 gap-8 py-8">

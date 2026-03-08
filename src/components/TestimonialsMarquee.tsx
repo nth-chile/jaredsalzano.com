@@ -5,6 +5,7 @@
 // import Particles, { initParticlesEngine } from "@tsparticles/react";
 // import { loadEmittersPlugin } from "@tsparticles/plugin-emitters";
 // import { loadSlim } from "@tsparticles/slim";
+import Marquee from "@/components/Marquee";
 import "@/styles/marquee.css";
 
 // const emitterDefaults = {
@@ -108,7 +109,7 @@ export default function TestimonialsMarquee() {
         )
 
     return (
-        <div className='marquee overflow-hidden flex gap-4 py-4'>
+        <Marquee className='marquee flex gap-4 py-4'>
             <div className='shrink-0 flex gap-4 marquee-group'>{items}</div>
             <div aria-hidden className='shrink-0 flex gap-4 marquee-group'>{items}</div>
             {/* {init && <Particles
@@ -148,7 +149,7 @@ export default function TestimonialsMarquee() {
                 }}
             />
             } */}
-        </div>
+        </Marquee>
     );
 
 }
