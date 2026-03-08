@@ -1,26 +1,7 @@
 .marquee {
   --marquee-gap: 1rem;
-
-  &:hover,
-  &:focus {
-    .marquee-group {
-      @media (hover: hover) {
-        animation-play-state: paused;
-      }
-    }
-  }
-}
-
-.marquee-group {
-  animation: scroll 20s linear infinite;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-100% - var(--marquee-gap)));
-  }
+  overflow-x: clip;
+  overflow-y: visible;
+  padding-inline: 1.25rem;
+  margin-inline: -1.25rem;
 }
