@@ -37,6 +37,26 @@ body {
   }
 }
 
+.has-toc {
+  --toc-offset: 40px;
+}
+
+.has-toc .page-container {
+  @media (width >= 768px) {
+    padding-left: 160px;
+  }
+}
+
+@media (width >= 1280px) {
+  .has-toc {
+    --toc-offset: 56px;
+  }
+
+  .has-toc .page-container {
+    padding-left: 200px;
+  }
+}
+
 .page-container-bottom-padding {
   padding-bottom: 40px;
 

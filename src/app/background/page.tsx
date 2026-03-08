@@ -36,7 +36,7 @@ export default async function BackgroundPage() {
 
     return (
         <>
-            <main className="relative bg-white/90">
+            <main className="relative bg-white/90 has-toc">
                 <div className="page-container">
                     <div className="pt-8 mb-8 flex gap-4 items-center justify-end">
                         <NavLink href="/">Overview</NavLink>
@@ -53,7 +53,7 @@ export default async function BackgroundPage() {
                     </div>
                 </section>
 
-                <section id="faq" className="page-container py-16 border-t border-gray-200 scroll-mt-4" aria-label="FAQ">
+                <section id="faq" className="page-container py-16 scroll-mt-4" aria-label="FAQ">
                     <div className="prose prose-lg">
                         <h2>Frequently asked questions</h2>
                         {faq.map(({ question, answer }, index) => (
@@ -65,7 +65,7 @@ export default async function BackgroundPage() {
                     </div>
                 </section>
 
-                <section id="resume" className="page-container py-16 border-t border-gray-200 scroll-mt-4" aria-label="Resume">
+                <section id="resume" className="page-container py-16 scroll-mt-4" aria-label="Resume">
                     <div className="mb-10">
                         <a
                             target="_blank"
