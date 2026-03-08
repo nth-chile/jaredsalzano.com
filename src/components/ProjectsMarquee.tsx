@@ -1,5 +1,7 @@
 import ContinuousImage from "@/components/ContinuousImage";
+import ArticlePreview from "@/components/ArticlePreview";
 import "@/styles/marquee.css";
+import "@/styles/home.css";
 
 interface Post {
   frontMatter: any;
@@ -9,12 +11,14 @@ interface Post {
 
 export default function ProjectsMarquee({
   posts,
+  gridOrder,
   className = "",
 }: {
   className?: string;
   posts: Post[];
+  gridOrder?: string[];
 }) {
-  const items = posts.map((post, index) => {
+  const marqueeItems = posts.map((post, index) => {
     const { frontMatter, slug, hasContent } = post;
     const Wrapper = hasContent ? "a" : "div";
     const wrapperProps = hasContent ? { href: `/projects/${slug}` } : {};
@@ -30,7 +34,7 @@ export default function ProjectsMarquee({
           src={frontMatter.featuredImage}
           alt={frontMatter.title}
           fill
-          sizes="(min-width: 640px) 461px, 384px" // depends on sm:h-72 (288px) and h-60 (240px) * aspectRatio 1.6
+          sizes="(min-width: 640px) 461px, 384px"
           priority
           className={`${frontMatter.imgClass || ""} object-cover`}
           radius={0.15}
@@ -38,15 +42,34 @@ export default function ProjectsMarquee({
           material3d
         >
           {/* Hover Overlay */}
-          <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-black/40 via-black/30 to-transparent pointer-events-none">
-            <h2 className="text-white font-semibold text-xl mb-2 drop-shadow-sm">
-              {frontMatter.title}
-            </h2>
-            {frontMatter.excerpt && (
-              <p className="text-white/90 text-sm line-clamp-4 drop-shadow-sm">
-                {frontMatter.excerpt}
-              </p>
-            )}
+          <div
+            className="absolute inset-0 z-20 backdrop-blur-0 transition-[backdrop-filter] duration-300 group-hover:backdrop-blur-[6px] pointer-events-none"
+            style={{
+              mask: "linear-gradient(to top, white 0%, white 30%, transparent 90%)",
+            }}
+          />
+          <div className="absolute inset-0 z-20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)",
+              }}
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-5" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}>
+              <h2 className="text-white font-semibold text-lg mb-1" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}>
+                {frontMatter.title}
+              </h2>
+              {frontMatter.excerpt && (
+                <p className="text-white/85 text-sm line-clamp-3 leading-relaxed">
+                  {frontMatter.excerpt}
+                </p>
+              )}
+              {hasContent && (
+                <p className="text-white/85 text-sm mt-2 mb-0">
+                  Read more <svg className="inline w-3 h-3 ml-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </p>
+              )}
+            </div>
           </div>
         </ContinuousImage>
       </Wrapper>
@@ -54,14 +77,32 @@ export default function ProjectsMarquee({
   });
 
   return (
-    <div
-      className={`marquee projects-marquee overflow-hidden flex gap-8 py-10 ${className}`}
-      style={{ "--marquee-gap": "2rem" } as React.CSSProperties}
-    >
-      <div className="shrink-0 flex gap-8 marquee-group">{items}</div>
-      <div aria-hidden className="shrink-0 flex gap-8 marquee-group">
-        {items}
+    <>
+      {/* Hover devices: scrolling marquee */}
+      <div
+        className={`marquee-hover marquee projects-marquee overflow-hidden flex gap-8 py-10 ${className}`}
+        style={{ "--marquee-gap": "2rem" } as React.CSSProperties}
+      >
+        <div className="shrink-0 flex gap-8 marquee-group">{marqueeItems}</div>
+        <div aria-hidden className="shrink-0 flex gap-8 marquee-group">
+          {marqueeItems}
+        </div>
       </div>
-    </div>
+
+      {/* Touch devices: static grid with text below */}
+      <div className="marquee-touch-grid page-container grid-cols-1 lg:grid-cols-2 gap-8 py-8">
+        {(gridOrder
+          ? gridOrder.map((slug) => posts.find((p) => p.slug === slug)).filter(Boolean) as Post[]
+          : posts
+        ).map((post, index) => (
+          <ArticlePreview
+            key={index}
+            frontMatter={post.frontMatter}
+            slug={post.slug}
+            hasContent={post.hasContent}
+          />
+        ))}
+      </div>
+    </>
   );
 }
