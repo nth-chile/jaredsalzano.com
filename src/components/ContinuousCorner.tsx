@@ -4,7 +4,7 @@
 
 import React, { useRef, useState, useLayoutEffect } from 'react';
 
-function generateContinuousCornerPath(width: number, height: number, radiusPx: number, smoothing: number) {
+export function generateContinuousCornerPath(width: number, height: number, radiusPx: number, smoothing: number) {
   const r = Math.min(Math.min(width, height) / 2, Math.max(0, radiusPx));
   const c = r * smoothing;
   return [
@@ -86,7 +86,7 @@ const ContinuousCorner = ({
             clipPath: clipValue,
             WebkitClipPath: clipValue,
             display: 'inline-block',
-            padding: borderWidth,
+              padding: borderWidth,
             backgroundColor: borderColor,
             ...style,
             opacity: hasSize ? (style.opacity ?? 1) : 0,

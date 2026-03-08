@@ -43,12 +43,12 @@ export default function ProjectsMarquee({
         >
           {/* Hover Overlay */}
           <div
-            className="absolute inset-0 z-20 backdrop-blur-0 transition-[backdrop-filter] duration-300 group-hover:backdrop-blur-[6px] pointer-events-none"
+            className="absolute inset-0 z-20 backdrop-blur-[0.5px] transition-[backdrop-filter] duration-300 group-hover:backdrop-blur-[6px] pointer-events-none"
             style={{
               mask: "linear-gradient(to top, white 0%, white 30%, transparent 90%)",
             }}
           />
-          <div className="absolute inset-0 z-20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
+          <div className="absolute inset-0 z-30 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" style={{ transform: "translateZ(0)" }}>
             <div
               className="absolute inset-0"
               style={{
