@@ -6,6 +6,7 @@ import ResumeContent from "@/components/ResumeContent"
 import { getResume } from "@/lib/getResume"
 import getContentBySlug from "@/utils/getContentBySlug"
 import BackgroundTOC from "./BackgroundTOC"
+import { logoifyHtml } from "@/components/InlineLogo"
 
 const faqFilenames = [1, 2, 3, 4, 5, 6]
 
@@ -58,7 +59,7 @@ export default async function BackgroundPage() {
                         {faq.map(({ question, answer }, index) => (
                             <div key={index}>
                                 <h3>{question}</h3>
-                                <div dangerouslySetInnerHTML={{ __html: answer }} />
+                                <div dangerouslySetInnerHTML={{ __html: logoifyHtml(answer) }} />
                             </div>
                         ))}
                     </div>
