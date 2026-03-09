@@ -141,13 +141,13 @@ const logos: Record<string, ReactNode> = {
     </svg>
   ),
   huge: (
-    <img src="/clients/huge-logo.png" alt="Huge Inc." className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
+    <img src="/clients/huge-logo.png" alt="Huge" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
   ),
   elephant: (
     <img src="/clients/elephant.png" alt="Elephant" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
   ),
   abinbev: (
-    <img src="/clients/abinbev.svg" alt="AB InBev" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
+    <img src="/clients/abinbev.svg" alt="AB InBev" className="!inline-block !m-0 h-[0.75em] w-auto align-middle" />
   ),
   spearstreet: (
     <img src="/clients/spearstreet.svg" alt="Spear Street Capital" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
@@ -161,7 +161,7 @@ const logos: Record<string, ReactNode> = {
     </svg>
   ),
   adobe: (
-    <svg viewBox="0 0 24 24" className="inline-block h-[1em] w-auto align-[-0.1em]">
+    <svg viewBox="0 0 24 24" className="inline-block h-[1em] w-auto align-[-0.15em]">
       <path
         fill="#FA0F00"
         d="m13.966 22.624l-1.69-4.281H8.122l3.892-9.144l5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z"

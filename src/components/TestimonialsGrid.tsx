@@ -27,9 +27,7 @@ const testimonials: Testimonial[] = [
         id: 23,
         quote: "Jared has been a great resource for our firm. He promptly executes on updates to our site and is a pleasure to work with.",
         name: "Susie Baker",
-        secondLine: <><span className="logo-link"><L name="spearstreet" /></span></>,
-        linkHref: "https://spearstreetcapital.com/",
-        linkText: "spearstreetcapital.com",
+        secondLine: <>Chief Operating Officer at <a href="https://spearstreetcapital.com/" target="_blank" className="logo-link"><L name="spearstreet" /><svg className="inline ml-1" style={{ marginTop: -1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.31787 9.18188L7.97472 3.52503" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /><path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /></svg></a></>,
     },
     {
         id: 4234,
@@ -65,7 +63,7 @@ function TestimonialCard({ linkHref, linkText, name, quote, secondLine }: Testim
             </blockquote>
             <cite className="not-italic">
                 <p className="font-bold text-base">{name}</p>
-                {secondLine && <span className="text-sm text-gray-600 [&_.logo-link]:text-lg">{secondLine}</span>}
+                {secondLine && <span className="text-sm text-gray-600 [&_.logo-link]:text-2xl [&_.logo-link>svg]:!align-middle [&_.logo-link>img]:!align-middle">{secondLine}</span>}
                 {linkHref && <a href={linkHref} target="_blank" className="text-sm text-nowrap hover:border-b border-b-gray-800">{linkText}
                     <svg className="inline ml-1" style={{ marginTop: -1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.31787 9.18188L7.97472 3.52503" stroke="black" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" />
