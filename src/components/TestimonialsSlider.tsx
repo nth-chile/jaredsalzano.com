@@ -20,30 +20,22 @@ interface Testimonial {
     secondLine?: ReactNode;
     linkHref?: string;
     linkText?: string;
-    logo?: string;
-    logoAlt?: string;
-    logoWide?: boolean;
 }
 
 const testimonials: Testimonial[] = [
     {
         id: 1234423,
-        quote: <>Jared was a pleasure to work with at our shared time at <span className="whitespace-nowrap"><L name="elephant" /> Elephant</span>. We worked alongside each other with a wide range of web technologies, including <span className="whitespace-nowrap"><L name="react" /> React</span> and <span className="whitespace-nowrap"><L name="react" /> React Native</span>. I could count on Jared to raise important UX, engineering and feasibility considerations. Any team would be lucky to have him.</>,
+        quote: <>Jared was a pleasure to work with at our shared time at <span className="logo-group"><span className="logo-link"><L name="elephant" /></span>{" "}Elephant</span>. We worked alongside each other with a wide range of web technologies, including <L name="react" /> React and <L name="react" /> React Native. I could count on Jared to raise important UX, engineering and feasibility considerations. Any team would be lucky to have him.</>,
         name: "Brittney Kernan",
         small: true,
-        secondLine: <>Team Leader & Software Engineer at <span className="whitespace-nowrap"><L name="notion" /> Notion</span></>,
-        logo: "/clients/notion.svg",
-        logoAlt: "Notion",
+        secondLine: <>Team Leader & Software Engineer at <span className="logo-group"><span className="logo-link"><L name="notion" /></span>{" "}Notion</span></>,
     },
     {
         id: 4234,
         quote: "Jared is one of the most creative and determined developers you will ever meet. He brings an all-world mindset to his programming, and is unflappable against challenges and roadblocks as they come up. He is an excellent choice for a development project.",
         name: "Adam Spunberg",
         small: true,
-        secondLine: "Global Head of Operations, 100+ Accelerator, AB InBev",
-        logo: "/clients/abinbev.svg",
-        logoAlt: "AB InBev",
-        logoWide: true,
+        secondLine: <>Global Head of Operations, 100+ Accelerator, <span className="logo-group"><span className="logo-link"><L name="abinbev" /></span>{" "}AB InBev</span></>,
     },
     {
         id: 1,
@@ -57,17 +49,13 @@ const testimonials: Testimonial[] = [
         quote: "Jared was an outstanding software engineer on our team—technically sharp, collaborative, and always focused on delivering high-quality solutions. He consistently took initiative to solve complex problems and improve our product experience, often going above and beyond expectations. Any team would be lucky to have Jared's combination of technical excellence and strong communication skills.",
         name: "David Skara",
         small: true,
-        secondLine: <>Product Manager at <span className="whitespace-nowrap"><L name="elephant" /> Elephant</span></>,
-        logo: "/clients/elephant.png",
-        logoAlt: "Elephant",
+        secondLine: <>Product Manager at <span className="logo-group"><span className="logo-link"><L name="elephant" /></span>{" "}Elephant</span></>,
     },
     {
         id: 2,
         quote: "Incredibly professional and nice guy to work with. Genuinely went above and beyond the product requirements.",
         name: "Avi Muchnick",
-        secondLine: <>Cofounder of Aviary (acquired by <span className="whitespace-nowrap"><L name="adobe" /> Adobe</span>)</>,
-        logo: "/clients/adobe.svg",
-        logoAlt: "Adobe",
+        secondLine: <>Cofounder of Aviary (acquired by <span className="logo-group"><span className="logo-link"><L name="adobe" /></span>{" "}Adobe</span>)</>,
     },
     {
         id: 3,
@@ -81,8 +69,6 @@ const testimonials: Testimonial[] = [
         name: "Susie Baker",
         linkHref: "https://spearstreetcapital.com/",
         linkText: "spearstreetcapital.com",
-        logo: "/clients/spearstreet.svg",
-        logoAlt: "Spear Street Capital",
     }
 ];
 
@@ -110,21 +96,20 @@ export default function TestimonialsSlider() {
                 {slides.map((pair, slideIndex) => (
                     <SwiperSlide key={slideIndex}>
                         <div className={`pb-16 px-6 sm:px-20 grid gap-0 text-gray-800 ${pair.length > 1 ? 'max-lg:divide-y max-lg:divide-gray-400 lg:grid-cols-2 lg:[grid-template-rows:1fr_auto] lg:divide-x lg:divide-gray-400' : ''}`}>
-                            {pair.map(({ linkHref, linkText, id, name, quote, secondLine, small = false, logo, logoAlt, logoWide }) => (
+                            {pair.map(({ linkHref, linkText, id, name, quote, secondLine, small = false }) => (
                                 <article key={id} className={`items-start px-4 lg:px-10 max-lg:py-8 ${pair.length > 1 ? 'lg:row-span-2 lg:grid lg:[grid-template-rows:subgrid]' : 'flex flex-col'}`}>
                                     <blockquote className={`font-serif italic text-balance mb-6 ${pair.length > 1 ? 'text-xl' : small ? 'text-2xl' : 'text-3xl'}`} style={{ maxWidth: pair.length > 1 ? undefined : small ? "800px" : "700px" }}>
                                         <p>"{quote}"</p>
                                     </blockquote>
                                     <cite className="not-italic self-start">
                                         <p className="font-bold text-xl">{name}</p>
-                                        {secondLine && <span className="not-italic">{secondLine}</span>}
+                                        {secondLine && <span className="not-italic [&_.logo-link]:text-xl">{secondLine}</span>}
                                         {linkHref && <a href={linkHref} target="_blank" className="text-nowrap hover:border-b border-b-gray-800">{linkText}
                                             <svg className="inline ml-1" style={{ marginTop: -1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M2.31787 9.18188L7.97472 3.52503" stroke="black" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" />
                                                 <path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="black" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" />
                                             </svg>
                                         </a>}
-                                        {logo && <img src={logo} alt={logoAlt} className={`w-auto mt-2 grayscale opacity-40 ${logoWide ? 'h-5' : 'h-6'}`} />}
                                     </cite>
                                 </article>
                             ))}
