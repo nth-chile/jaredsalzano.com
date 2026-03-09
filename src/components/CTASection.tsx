@@ -22,13 +22,13 @@ export default function CTASection({ heading, description, divider = true, card 
     }
 
     return (
-        <section className={`${divider ? "border-t border-gray-400 " : ""}py-12`}>
+        <section className="py-12">
             <div className="page-container">
-                <div className="prose prose-xl">
+                <div className="prose prose-xl mb-6">
                     <h2>{heading}</h2>
                     <p>{description}</p>
-                    <ContactButton />
                 </div>
+                <ContactButton />
             </div>
         </section>
     )
