@@ -3,7 +3,6 @@ import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts";
 import { EXPERIENCE_PROJECTS, CLIENT_PROJECTS, PASSION_PROJECTS } from "@/data/projects";
 import Footer from "@/components/Footer";
 
-import ArticlePreview from "@/components/ArticlePreview";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
 import TestimonialsSlider from "@/components/TestimonialsSlider";
 import NavLink from "@/components/NavLink";
@@ -102,15 +101,13 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <div className="my-8">
-            <ProjectsMarquee
-              posts={getPostsBySlug([...EXPERIENCE_PROJECTS]).filter(
-                (post) => post !== undefined
-              )}
-              gridOrder={['apple', 'comcast', 'openai', 'elephant-website', 'blackstone']}
-            />
-          </div>
-          <div className="page-container mt-16 mb-12">
+          <ProjectsMarquee
+            posts={getPostsBySlug([...EXPERIENCE_PROJECTS]).filter(
+              (post) => post !== undefined
+            )}
+            gridOrder={['apple', 'comcast', 'openai', 'elephant-website', 'blackstone']}
+          />
+          <div className="page-container mt-4">
             <div className="prose prose-lg">
               <h2 className="">Direct Client Work</h2>
               <p>
@@ -120,36 +117,24 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <div className="page-container grid grid-cols-1 lg:grid-cols-2 gap-5 my-8">
-            {getPostsBySlug([...CLIENT_PROJECTS])
-              .filter((post) => post !== undefined)
-              .map((post, index) => (
-                <ArticlePreview
-                  key={index}
-                  frontMatter={post.frontMatter}
-                  slug={post.slug}
-                  hasContent={post.hasContent}
-                />
-              ))}
+          <ProjectsMarquee
+            posts={getPostsBySlug([...CLIENT_PROJECTS]).filter(
+              (post) => post !== undefined
+            )}
+            gridOrder={[...CLIENT_PROJECTS]}
+            duration={36}
+          />
+          <div className="page-container mt-4">
+            <div className="prose prose-lg">
+              <h2>Passion Projects</h2>
+            </div>
           </div>
-        </section>
-
-        <section className="page-container py-16" aria-label="Passion Projects">
-          <div className="prose prose-lg">
-            <h1>Passion Projects</h1>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 my-8">
-            {getPostsBySlug([...PASSION_PROJECTS])
-              .filter((post) => post !== undefined)
-              .map((post, index) => (
-                <ArticlePreview
-                  key={index}
-                  frontMatter={post.frontMatter}
-                  slug={post.slug}
-                  hasContent={post.hasContent}
-                />
-              ))}
-          </div>
+          <ProjectsMarquee
+            posts={getPostsBySlug([...PASSION_PROJECTS]).filter(
+              (post) => post !== undefined
+            )}
+            gridOrder={[...PASSION_PROJECTS]}
+          />
         </section>
 
         <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">

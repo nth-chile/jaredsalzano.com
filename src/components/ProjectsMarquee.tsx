@@ -14,10 +14,12 @@ export default function ProjectsMarquee({
   posts,
   gridOrder,
   className = "",
+  duration,
 }: {
   className?: string;
   posts: Post[];
   gridOrder?: string[];
+  duration?: number;
 }) {
   const marqueeItems = posts.map((post, index) => {
     const { frontMatter, slug, hasContent } = post;
@@ -83,6 +85,7 @@ export default function ProjectsMarquee({
       <Marquee
         className={`marquee-hover marquee projects-marquee flex gap-5 py-8 ${className}`}
         style={{ "--marquee-gap": "1.25rem" } as React.CSSProperties}
+        {...(duration ? { duration } : {})}
       >
         <div className="shrink-0 flex gap-5 marquee-group">{marqueeItems}</div>
         <div aria-hidden className="shrink-0 flex gap-5 marquee-group">
