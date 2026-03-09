@@ -10,10 +10,10 @@ export default function NavLink({ href, children }: { href: string, children: Re
   return (
     <Link
       href={href}
-      className={`inline-flex items-center text-sm transition-colors no-underline hover:underline ${
+      className={`inline-flex items-center text-sm transition-colors hover:underline ${
         isActive
-          ? "font-semibold text-gray-700 hover:text-gray-700"
-          : "font-medium text-gray-600 hover:text-gray-700"
+          ? "font-semibold text-gray-700 hover:text-gray-700 underline"
+          : "font-medium text-gray-600 hover:text-gray-700 no-underline"
       }`}
     >
       {children}
