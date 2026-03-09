@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 import ArticlePreview from "@/components/ArticlePreview";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
-import TestimonialsSlider from "@/components/TestimonialsSlider";
+import TestimonialsGrid from "@/components/TestimonialsGrid";
 import NavLink from "@/components/NavLink";
 import ContactButton from "@/components/ContactButton";
 import CTASection from "@/components/CTASection";
@@ -152,8 +152,8 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="bg-white py-8 lg:py-16 border-t border-b border-gray-400" aria-label="Testimonials">
-          <TestimonialsSlider />
+        <section className="bg-white py-12 lg:py-20 border-t border-b border-gray-400" aria-label="Testimonials">
+          <TestimonialsGrid />
         </section>
         <CTASection
           heading="Let's work together"
