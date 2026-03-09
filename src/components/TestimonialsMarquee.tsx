@@ -7,6 +7,7 @@
 // import { loadSlim } from "@tsparticles/slim";
 import Marquee from "@/components/Marquee";
 import "@/styles/marquee.css";
+import L from "@/components/InlineLogo";
 
 // const emitterDefaults = {
 //     rate: { delay: 2, quantity: 3 },
@@ -61,7 +62,7 @@ export default function TestimonialsMarquee() {
             id: 2,
             quote: "Incredibly professional and nice guy to work with. Genuinely went above and beyond the product requirements.",
             name: "Avi Muchnick",
-            secondLine: "Cofounder of Aviary (acquired by Adobe)",
+            secondLine: <>Cofounder of Aviary (acquired by <span className="whitespace-nowrap"><L name="adobe" /> Adobe</span>)</>,
             logo: "/clients/adobe.svg",
             logoAlt: "Adobe"
         },
