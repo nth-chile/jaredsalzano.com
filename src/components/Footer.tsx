@@ -1,7 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="footer text-center text-gray-800 py-16 relative">
-      <ul className="p-0 ">
+    <footer className="footer text-gray-800 pb-16 relative">
+    <div className="page-container">
+      <ul className="p-0">
         <li className="mx-2 inline-block">
           <a href="mailto:jaredsalzano@gmail.com" target="_blank">
             <svg className="align-middle inline-block" width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,6 +36,7 @@ export default function Footer() {
           </a>
         </li>
       </ul>
+    </div>
       <a className="absolute bottom-2 right-2 underline z-10 text-blue-700" href="/other-stuff">other stuff</a>
     </footer>
   )
