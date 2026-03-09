@@ -147,7 +147,7 @@ const logos: Record<string, ReactNode> = {
     <img src="/clients/elephant.png" alt="Elephant" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
   ),
   abinbev: (
-    <img src="/clients/abinbev.svg" alt="AB InBev" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
+    <img src="/clients/abinbev.svg" alt="AB InBev" className="!inline-block !m-0 h-[0.8em] w-auto align-[-0.1em]" />
   ),
   spearstreet: (
     <img src="/clients/spearstreet.svg" alt="Spear Street Capital" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
