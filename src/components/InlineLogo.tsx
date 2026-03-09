@@ -130,6 +130,12 @@ const logos: Record<string, ReactNode> = {
       </g>
     </svg>
   ),
+  huge: (
+    <img src="/clients/huge-logo.png" alt="Huge Inc." className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
+  ),
+  elephant: (
+    <img src="/clients/elephant.png" alt="Elephant" className="!inline-block !m-0 h-[1em] w-auto align-[-0.15em]" />
+  ),
   electron: (
     <svg viewBox="0 0 24 24" className="inline-block h-[1em] w-auto align-[-0.1em]">
       <path

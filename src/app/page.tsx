@@ -85,24 +85,14 @@ export default async function Home() {
           <div className="page-container">
             <div className="prose prose-lg">
               <h1>Experience</h1>
-              <div className="not-prose mt-16 -mb-10">
-                <ContinuousImage
-                  src="/clients/huge-logo.png"
-                  alt="Huge Inc. logo"
-                  width={316}
-                  height={316}
-                  className="h-32 w-auto"
-                  radius={0.25}
-                />
-              </div>
               <h2 className="!mb-2">Huge Inc. & Elephant</h2>
               <p>
                 I&apos;ve been fortunate to work with
-                sister companies{" "}
+                sister companies <L name="huge" />{" "}
                 <a href="https://www.hugeinc.com/" target="_blank">
                   Huge Inc.
                 </a>{" "}
-                &{" "}
+                & <L name="elephant" />{" "}
                 <a href="https://www.elephant.is/" target="_blank">
                   Elephant
                 </a>{" "}
