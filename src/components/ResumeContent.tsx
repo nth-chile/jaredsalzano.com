@@ -19,12 +19,12 @@ function renderWithLinks(text: string) {
 
 export default function ResumeContent({ resume }: Props) {
   return (
-    <div className="font-sans">
+    <div className="font-sans text-gray-950/90">
 
       {resume.experience.map((job) => (
         <div key={job.company} className="mt-8 first:mt-0">
           <div className="flex justify-between items-baseline gap-4 mb-1">
-            <h3 className="m-0 text-xl font-bold leading-tight">{job.company}</h3>
+            <h3 className="m-0 font-bold leading-tight">{job.company}</h3>
             <span className="text-sm font-bold tabular-nums shrink-0">{job.period}</span>
           </div>
           <p className="text-[14px] italic leading-snug mt-0.5 mb-1">{job.description}</p>
@@ -55,7 +55,7 @@ export default function ResumeContent({ resume }: Props) {
       ))}
 
       <div className="mt-8">
-        <h3 className="m-0 text-xl font-bold leading-tight mb-1">Other contract work</h3>
+        <h3 className="m-0 font-bold leading-tight mb-1">Other contract work</h3>
         <ul className="list-disc ml-5 text-[15px] leading-snug">
           {resume.otherWork.bullets.map((bullet, i) => (
             <li key={i}>{renderWithLinks(bullet)}</li>
@@ -65,7 +65,7 @@ export default function ResumeContent({ resume }: Props) {
 
       <div className="mt-8">
         <div className="flex justify-between items-baseline gap-4 mb-1">
-          <h3 className="m-0 text-xl font-bold leading-tight">Passion projects</h3>
+          <h3 className="m-0 font-bold leading-tight">Passion projects</h3>
           <span className="text-sm font-bold tabular-nums shrink-0">{resume.passionProjects.period}</span>
         </div>
         <ul className="list-disc ml-5 text-[15px] leading-snug">
