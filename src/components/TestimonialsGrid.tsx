@@ -35,14 +35,6 @@ const testimonials: Testimonial[] = [
         secondLine: "Graphic design portfolio client",
     },
     {
-        id: 54325,
-        quote: "Jared was an outstanding software engineer on our team—technically sharp, collaborative, and always focused on delivering high-quality solutions. He consistently took initiative to solve complex problems and improve our product experience, often going above and beyond expectations. Any team would be lucky to have Jared's combination of technical excellence and strong communication skills.",
-        name: "David Skara",
-        secondLine: "Product Manager at Elephant",
-        logo: "/clients/elephant.png",
-        logoAlt: "Elephant",
-    },
-    {
         id: 2,
         quote: "Incredibly professional and nice guy to work with. Genuinely went above and beyond the product requirements.",
         name: "Avi Muchnick",
@@ -51,10 +43,12 @@ const testimonials: Testimonial[] = [
         logoAlt: "Adobe",
     },
     {
-        id: 3,
-        quote: "Jared was easy to get a hold of and plan out the project with. He was flexible as we had to change things around mid-project and stuck to timelines and budget.",
-        name: "Zach Holub",
-        secondLine: "Physical therapy website client",
+        id: 54325,
+        quote: "Jared was an outstanding software engineer on our team—technically sharp, collaborative, and always focused on delivering high-quality solutions. He consistently took initiative to solve complex problems and improve our product experience, often going above and beyond expectations. Any team would be lucky to have Jared's combination of technical excellence and strong communication skills.",
+        name: "David Skara",
+        secondLine: "Product Manager at Elephant",
+        logo: "/clients/elephant.png",
+        logoAlt: "Elephant",
     },
     {
         id: 23,
@@ -64,6 +58,12 @@ const testimonials: Testimonial[] = [
         linkText: "spearstreetcapital.com",
         logo: "/clients/spearstreet.svg",
         logoAlt: "Spear Street Capital",
+    },
+    {
+        id: 3,
+        quote: "Jared was easy to get a hold of and plan out the project with. He was flexible as we had to change things around mid-project and stuck to timelines and budget.",
+        name: "Zach Holub",
+        secondLine: "Physical therapy website client",
     }
 ];
 
@@ -78,7 +78,7 @@ function distributeIntoColumns<T>(items: T[], numCols: number): T[][] {
 function TestimonialCard({ linkHref, linkText, name, quote, secondLine, logo, logoAlt, logoWide }: Testimonial) {
     return (
         <article className="mb-8">
-            <blockquote className="font-serif italic text-xl text-gray-800 text-balance mb-4">
+            <blockquote className="font-serif italic text-2xl text-gray-800 text-balance mb-4">
                 <p>{quote}</p>
             </blockquote>
             <cite className="not-italic">
@@ -101,9 +101,9 @@ const cols3 = distributeIntoColumns(testimonials, 3);
 
 export default function TestimonialsGrid() {
     return (
-        <div className="px-6 sm:px-12 lg:px-20">
+        <div className="page-container">
             <p className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-800 mb-10 lg:mb-14 text-balance max-w-4xl">
-                Don&apos;t take my word for it.
+                Kind words from people I&apos;ve worked with
             </p>
             {/* Mobile: single column */}
             <div className="sm:hidden">

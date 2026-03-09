@@ -129,23 +129,18 @@ export default async function Home() {
           />
         </section>
 
-        <section className="bg-white py-12 lg:py-20 border-t border-b border-gray-400" aria-label="Testimonials">
+        <section className="bg-white py-12 lg:py-20" aria-label="Testimonials">
           <TestimonialsGrid />
         </section>
         <CTASection
           heading="Let's work together"
           description={
             <>
-              I&apos;m{" "}
-              <b className="font-[500]">
-                actively looking for a full-time role
-              </b>{" "}
-              at a thoughtful, purpose-driven startup—NYC or remote—as a senior
-              front-end or full-stack developer. I&apos;m also{" "}
-              <b className="font-[500]">
-                currently taking on select freelance projects
-              </b>
-              , always excited to work with new people on fresh challenges.
+              I&apos;m actively looking for a full-time role at a thoughtful,
+              purpose-driven startup—NYC or remote—as a senior front-end or
+              full-stack developer. I&apos;m also currently taking on select
+              freelance projects, always excited to work with new people on
+              fresh challenges.
             </>
           }
         />
