@@ -35,7 +35,7 @@ export default async function Home() {
                 width={190}
                 height={190}
                 placeholder="blur"
-                radius={0.25}
+                radius={0.12}
                 shadow
                 material3d
                 priority
@@ -73,7 +73,7 @@ export default async function Home() {
               <p>
                 <a
                   href="/background"
-                  className="inline-block no-underline font-medium text-sm tracking-[0.01em] py-2 px-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
+                  className="inline-block no-underline font-medium text-sm tracking-[0.01em] py-2 px-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200"
                 >
                   Read more
                 </a>
@@ -92,7 +92,7 @@ export default async function Home() {
                   width={316}
                   height={316}
                   className="h-32 w-auto"
-                  radius={0.25}
+                  radius={0.12}
                 />
               </div>
               <h2 className="!mb-2">Huge Inc. & Elephant</h2>
@@ -130,7 +130,7 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <div className="page-container grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
+          <div className="page-container grid grid-cols-1 lg:grid-cols-2 gap-5 my-8">
             {getPostsBySlug([...CLIENT_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
@@ -148,7 +148,7 @@ export default async function Home() {
           <div className="prose prose-lg">
             <h1>Passion Projects</h1>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 my-8">
             {getPostsBySlug([...PASSION_PROJECTS])
               .filter((post) => post !== undefined)
               .map((post, index) => (
