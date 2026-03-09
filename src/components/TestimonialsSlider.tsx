@@ -9,13 +9,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import "@/styles/testimonials.css";
+import L from "@/components/InlineLogo";
+import { type ReactNode } from "react";
 
 interface Testimonial {
     id: number;
-    quote: string;
+    quote: ReactNode;
     name: string;
     small?: boolean;
-    secondLine?: string;
+    secondLine?: ReactNode;
     linkHref?: string;
     linkText?: string;
     logo?: string;
@@ -26,10 +28,10 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1234423,
-        quote: "Jared was a pleasure to work with at our shared time at Elephant. We worked alongside each other with a wide range of web technologies, including React and React Native. I could count on Jared to raise important UX, engineering and feasibility considerations. Any team would be lucky to have him.",
+        quote: <>Jared was a pleasure to work with at our shared time at <span className="whitespace-nowrap"><L name="elephant" /> Elephant</span>. We worked alongside each other with a wide range of web technologies, including <span className="whitespace-nowrap"><L name="react" /> React</span> and <span className="whitespace-nowrap"><L name="react" /> React Native</span>. I could count on Jared to raise important UX, engineering and feasibility considerations. Any team would be lucky to have him.</>,
         name: "Brittney Kernan",
         small: true,
-        secondLine: "Team Leader & Software Engineer at Notion",
+        secondLine: <>Team Leader & Software Engineer at <span className="whitespace-nowrap"><L name="notion" /> Notion</span></>,
         logo: "/clients/notion.svg",
         logoAlt: "Notion",
     },
@@ -55,7 +57,7 @@ const testimonials: Testimonial[] = [
         quote: "Jared was an outstanding software engineer on our team—technically sharp, collaborative, and always focused on delivering high-quality solutions. He consistently took initiative to solve complex problems and improve our product experience, often going above and beyond expectations. Any team would be lucky to have Jared's combination of technical excellence and strong communication skills.",
         name: "David Skara",
         small: true,
-        secondLine: "Product Manager at Elephant",
+        secondLine: <>Product Manager at <span className="whitespace-nowrap"><L name="elephant" /> Elephant</span></>,
         logo: "/clients/elephant.png",
         logoAlt: "Elephant",
     },
@@ -63,7 +65,7 @@ const testimonials: Testimonial[] = [
         id: 2,
         quote: "Incredibly professional and nice guy to work with. Genuinely went above and beyond the product requirements.",
         name: "Avi Muchnick",
-        secondLine: "Cofounder of Aviary (acquired by Adobe)",
+        secondLine: <>Cofounder of Aviary (acquired by <span className="whitespace-nowrap"><L name="adobe" /> Adobe</span>)</>,
         logo: "/clients/adobe.svg",
         logoAlt: "Adobe",
     },
