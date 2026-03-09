@@ -95,7 +95,7 @@ export default async function Home() {
                   radius={0.25}
                 />
               </div>
-              <h2 className="!mb-2">Huge Inc. & Elephant</h2>
+              <h2 className="">Huge Inc. & Elephant</h2>
               <p>
                 I&apos;ve been fortunate to work with
                 sister companies{" "}
@@ -122,7 +122,7 @@ export default async function Home() {
           </div>
           <div className="page-container mt-16 mb-12">
             <div className="prose prose-lg">
-              <h2 className="!mb-2">Direct Client Work</h2>
+              <h2 className="">Direct Client Work</h2>
               <p>
                 Over the years, I&apos;ve worked with a range of companies and
                 organizations on projects spanning web development, design
