@@ -38,7 +38,7 @@ export default function ProjectsMarquee({
           sizes="(min-width: 640px) 461px, 384px"
           priority
           className={`${frontMatter.imgClass || ""} object-cover`}
-          radius={0.15}
+          radius={0.06}
           shadow
           material3d
         >
@@ -81,17 +81,17 @@ export default function ProjectsMarquee({
     <>
       {/* Hover devices: scrolling marquee */}
       <Marquee
-        className={`marquee-hover marquee projects-marquee flex gap-8 py-10 ${className}`}
-        style={{ "--marquee-gap": "2rem" } as React.CSSProperties}
+        className={`marquee-hover marquee projects-marquee flex gap-5 py-8 ${className}`}
+        style={{ "--marquee-gap": "1.25rem" } as React.CSSProperties}
       >
-        <div className="shrink-0 flex gap-8 marquee-group">{marqueeItems}</div>
-        <div aria-hidden className="shrink-0 flex gap-8 marquee-group">
+        <div className="shrink-0 flex gap-5 marquee-group">{marqueeItems}</div>
+        <div aria-hidden className="shrink-0 flex gap-5 marquee-group">
           {marqueeItems}
         </div>
       </Marquee>
 
       {/* Touch devices: static grid with text below */}
-      <div className="marquee-touch-grid page-container grid-cols-1 lg:grid-cols-2 gap-8 py-8">
+      <div className="marquee-touch-grid page-container grid-cols-1 lg:grid-cols-2 gap-5 py-6">
         {(gridOrder
           ? gridOrder.map((slug) => posts.find((p) => p.slug === slug)).filter(Boolean) as Post[]
           : posts
