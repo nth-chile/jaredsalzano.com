@@ -41,13 +41,10 @@ export default async function Home() {
                 priority
               />
             </div>
-            <div className="prose prose-lg">
+            <div className="prose prose-lg [&_p]:font-black">
               <p>
-                <b className="font-[500]">
-                  Hi. I&apos;m a front-end-leaning full-stack developer based in
-                  NYC with 8+ years of experience
-                </b>{" "}
-                shipping maintainable,
+                Hi. I&apos;m a front-end-leaning full-stack developer based in
+                NYC with 8+ years of experience shipping maintainable,
                 high-performance web apps for fast-moving startups, creative
                 agencies, and companies like{" "}
                 <span className="whitespace-nowrap"><L name="apple" />{" "}Apple</span>,{" "}
@@ -59,16 +56,11 @@ export default async function Home() {
                 services.
               </p>
               <p>
-                I&apos;m{" "}
-                <b className="font-[500]">
-                  actively looking for a full-time role
-                </b>{" "}
-                at a thoughtful, purpose-driven startup—NYC or remote—as a
-                senior front-end or full-stack developer. I&apos;m also{" "}
-                <b className="font-[500]">
-                  currently taking on select freelance projects
-                </b>
-                , always excited to work with new people on fresh challenges.
+                I&apos;m actively looking for a full-time role at a thoughtful,
+                purpose-driven startup—NYC or remote—as a senior front-end or
+                full-stack developer. I&apos;m also currently taking on select
+                freelance projects, always excited to work with new people on
+                fresh challenges.
               </p>
               <p>
                 <a
