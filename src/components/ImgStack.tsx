@@ -32,9 +32,9 @@ function Card({
       />
       <div className={`absolute top-[50%] -translate-y-[50%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${getCardClasses(index)}`}>
         <label className="absolute inset-0" htmlFor={`card-${index}`} />
-        <div className={`p-1 bg-slate-100 rounded-lg ${isSelected ? "border shadow-2xl" : "shadow-lg"}`}>
+        <div className={`p-1 bg-slate-100 rounded-sm ${isSelected ? "border shadow-2xl" : "shadow-lg"}`}>
           <Image
-            className="rounded-lg"
+            className="rounded-sm"
             src={image.src}
             alt="test"
             width="600"

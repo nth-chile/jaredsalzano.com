@@ -12,7 +12,7 @@ export default function CTASection({ heading, description, divider = true, card 
     if (card) {
         return (
             <section className="page-container py-12">
-                <div className="prose prose-xl bg-white shadow-lg rounded-2xl p-8 mx-auto text-center">
+                <div className="prose prose-xl bg-white shadow-lg rounded-lg p-8 mx-auto text-center">
                     <h2>{heading}</h2>
                     <p>{description}</p>
                     <ContactButton />

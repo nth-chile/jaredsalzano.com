@@ -59,7 +59,7 @@ export default function ArticlePreview({
           fill
           sizes="(min-width: 1024px) 540px, calc(100vw - 40px)"
           className={`${frontMatter.imgClass || ""} object-cover`}
-          radius={0.15}
+          radius={0.06}
           shadow
           material3d
         >

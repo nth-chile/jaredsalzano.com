@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: any) {
   }
 
   return (
-    <main className='prose prose-img:rounded prose-img:shadow-lg'>
+    <main className='prose prose-img:rounded-lg prose-img:shadow-lg'>
       {frontMatter.featuredImageCaption && (
         <figure>
           <Image className="featured-image" src={frontMatter.featuredImage} alt="Project featured image" width={640} height={400} />
