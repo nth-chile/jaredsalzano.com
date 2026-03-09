@@ -1,6 +1,7 @@
 import "@/styles/global.css"
 import type { Metadata } from "next"
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 
 // https://beta.nextjs.org/docs/api-reference/metadata
 export const metadata: Metadata = {
@@ -58,6 +59,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <Analytics />
         <Script
           src="https://cdn.counter.dev/script.js"
           data-id="588e79c0-02ae-4811-b033-59f6034fd66f"
