@@ -33,7 +33,7 @@ export default function ArticlePreview({
             {frontMatter.title}
           </h3>
           {frontMatter.excerpt && (
-            <p className="text-white/85 text-sm line-clamp-3 mb-0 leading-relaxed">
+            <p className="text-white/85 text-sm line-clamp-3 mb-0 leading-snug">
               {frontMatter.excerpt}
             </p>
           )}

@@ -61,7 +61,7 @@ export default function ProjectsMarquee({
                 {frontMatter.title}
               </h2>
               {frontMatter.excerpt && (
-                <p className="text-white/85 text-sm line-clamp-3 leading-relaxed">
+                <p className="text-white/85 text-sm line-clamp-3 leading-snug">
                   {frontMatter.excerpt}
                 </p>
               )}
