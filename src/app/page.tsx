@@ -46,9 +46,9 @@ export default async function Home() {
                 NYC with 8+ years of experience shipping maintainable,
                 high-performance web apps for fast-moving startups, creative
                 agencies, and companies like{" "}
-                <span className="whitespace-nowrap"><L name="apple" />{" "}Apple</span>,{" "}
-                <span className="whitespace-nowrap"><L name="openai" />{" "}OpenAI</span>,
-                and <span className="whitespace-nowrap"><L name="comcast" />{" "}Comcast</span>. I take ownership of
+                <span className="logo-group"><span className="logo-link"><L name="apple" /></span>{" "}Apple</span>,{" "}
+                <span className="logo-group"><span className="logo-link"><L name="openai" /></span>{" "}OpenAI</span>,
+                and{" "}<span className="logo-group"><span className="logo-link"><L name="comcast" /></span>{" "}Comcast</span>. I take ownership of
                 projects from planning to deployment, collaborate effectively
                 across teams, and love solving complex technical challenges.
                 Lately, I&apos;ve been exploring LLMs and emerging AI cloud
@@ -79,14 +79,10 @@ export default async function Home() {
               <h2 className="">Huge Inc. & Elephant</h2>
               <p>
                 I&apos;ve been fortunate to work with
-                sister companies <L name="huge" />{" "}
-                <a href="https://www.hugeinc.com/" target="_blank">
-                  Huge Inc.
-                </a>{" "}
-                & <L name="elephant" />{" "}
-                <a href="https://www.elephant.is/" target="_blank">
-                  Elephant
-                </a>{" "}
+                sister companies{" "}
+                <span className="logo-group"><a href="https://www.hugeinc.com/" target="_blank" className="logo-link" aria-label="Huge Inc."><L name="huge" /></a>{" "}<a href="https://www.hugeinc.com/" target="_blank" className="logo-text">Huge Inc.</a></span>{" "}
+                &{" "}
+                <span className="logo-group"><a href="https://www.elephant.is/" target="_blank" className="logo-link" aria-label="Elephant"><L name="elephant" /></a>{" "}<a href="https://www.elephant.is/" target="_blank" className="logo-text">Elephant</a></span>{" "}
                 on a variety of contract projects. Each engagement has brought new
                 challenges, creative problem-solving, and the opportunity to
                 collaborate with talented designers, developers, and strategists.
