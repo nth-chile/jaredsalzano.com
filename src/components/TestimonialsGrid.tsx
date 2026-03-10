@@ -57,7 +57,7 @@ const testimonials: Testimonial[] = [
 
 function TestimonialCard({ linkHref, linkText, name, quote, secondLine }: Testimonial) {
     return (
-        <article className="mb-8 break-inside-avoid">
+        <article className="mb-14 break-inside-avoid">
             <blockquote className="text-3xl font-black text-balance mb-4">
                 <p>{quote}</p>
             </blockquote>
