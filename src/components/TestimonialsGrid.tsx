@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
 function TestimonialCard({ linkHref, linkText, name, quote, secondLine }: Testimonial) {
     return (
         <article className="mb-8 break-inside-avoid">
-            <blockquote className="prose prose-lg text-balance mb-4 [&_p]:font-black">
+            <blockquote className="text-3xl font-black text-balance mb-4">
                 <p>{quote}</p>
             </blockquote>
             <cite className="not-italic">
@@ -79,7 +79,7 @@ export default function TestimonialsGrid() {
     return (
         <div className="page-container">
             <div className="prose prose-lg mb-10 lg:mb-14">
-                <h1>Kind words from people I&apos;ve worked with</h1>
+                <h2 className="!mt-0">Kind words from people I&apos;ve worked with</h2>
             </div>
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-8">
                 {testimonials.map((t) => <TestimonialCard key={t.id} {...t} />)}
