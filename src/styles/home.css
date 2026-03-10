@@ -27,20 +27,6 @@
   }
 }
 
-/* Marquee: show on hover devices, static grid on touch */
-.marquee-touch-grid {
-  display: none;
-}
-
-@media (hover: none) {
-  .marquee-hover {
-    display: none;
-  }
-
-  .marquee-touch-grid {
-    display: grid;
-  }
-}
 
 .project-grid {
   article {

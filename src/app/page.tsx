@@ -3,7 +3,7 @@ import getPreviewsForAllPosts from "@/utils/getPreviewsForAllPosts";
 import { EXPERIENCE_PROJECTS, CLIENT_PROJECTS, PASSION_PROJECTS } from "@/data/projects";
 import Footer from "@/components/Footer";
 
-import ProjectsMarquee from "@/components/ProjectsMarquee";
+import ProjectsCarousel from "@/components/ProjectsCarousel";
 import TestimonialsGrid from "@/components/TestimonialsGrid";
 import NavLink from "@/components/NavLink";
 import ContactButton from "@/components/ContactButton";
@@ -89,11 +89,10 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <ProjectsMarquee
+          <ProjectsCarousel
             posts={getPostsBySlug([...EXPERIENCE_PROJECTS]).filter(
               (post) => post !== undefined
             )}
-            gridOrder={['apple', 'comcast', 'openai', 'elephant-website', 'blackstone']}
           />
           <div className="page-container mt-4">
             <div className="prose prose-lg">
@@ -105,23 +104,20 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <ProjectsMarquee
+          <ProjectsCarousel
             posts={getPostsBySlug([...CLIENT_PROJECTS]).filter(
               (post) => post !== undefined
             )}
-            gridOrder={[...CLIENT_PROJECTS]}
-            duration={36}
           />
           <div className="page-container mt-4">
             <div className="prose prose-lg">
               <h2>Passion Projects</h2>
             </div>
           </div>
-          <ProjectsMarquee
+          <ProjectsCarousel
             posts={getPostsBySlug([...PASSION_PROJECTS]).filter(
               (post) => post !== undefined
             )}
-            gridOrder={[...PASSION_PROJECTS]}
           />
         </section>
 
