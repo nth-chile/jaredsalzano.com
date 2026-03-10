@@ -24,7 +24,7 @@ export default async function Home() {
           <div className="page-container">
             <div className="pt-8 mb-8 flex gap-4 items-center justify-end">
               <NavLink href="/">Overview</NavLink>
-              <NavLink href="/background">Resume</NavLink>
+              <NavLink href="/resume">Resume</NavLink>
               <ContactButton />
             </div>
             <div className="mb-8">
@@ -63,7 +63,7 @@ export default async function Home() {
               </p>
               <p>
                 <a
-                  href="/background"
+                  href="/resume"
                   className="inline-block no-underline font-medium text-sm tracking-[0.01em] py-2 px-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200"
                 >
                   Read more
@@ -80,9 +80,9 @@ export default async function Home() {
               <p>
                 I&apos;ve been fortunate to work with
                 sister companies{" "}
-                <span className="logo-group"><a href="https://www.hugeinc.com/" target="_blank" className="logo-link" aria-label="Huge"><L name="huge" /></a>{" "}<a href="https://www.hugeinc.com/" target="_blank" className="logo-text">Huge<svg className="inline ml-1" style={{ marginTop: -1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.31787 9.18188L7.97472 3.52503" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /><path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /></svg></a></span>{" "}
+                <span className="logo-group"><a href="https://www.hugeinc.com/" target="_blank" className="logo-link" aria-label="Huge"><L name="huge" /></a>{" "}<a href="https://www.hugeinc.com/" target="_blank" className="logo-text">Huge</a></span>{" "}
                 &{" "}
-                <span className="logo-group"><a href="https://www.elephant.is/" target="_blank" className="logo-link" aria-label="Elephant"><L name="elephant" /></a>{" "}<a href="https://www.elephant.is/" target="_blank" className="logo-text">Elephant<svg className="inline ml-1" style={{ marginTop: -1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.31787 9.18188L7.97472 3.52503" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /><path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /></svg></a></span>{" "}
+                <span className="logo-group"><a href="https://www.elephant.is/" target="_blank" className="logo-link" aria-label="Elephant"><L name="elephant" /></a>{" "}<a href="https://www.elephant.is/" target="_blank" className="logo-text">Elephant</a></span>{" "}
                 on a variety of contract projects. Each engagement has brought new
                 challenges, creative problem-solving, and the opportunity to
                 collaborate with talented designers, developers, and strategists.

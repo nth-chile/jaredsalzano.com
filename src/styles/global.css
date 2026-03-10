@@ -84,7 +84,7 @@ body {
 }
 
 a.logo-text {
-  font-weight: unset !important;
+  font-weight: bold !important;
   text-decoration: underline !important;
   border-bottom: none !important;
   color: inherit !important;

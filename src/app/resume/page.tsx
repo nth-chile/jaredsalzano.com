@@ -36,7 +36,7 @@ export default async function BackgroundPage() {
                 <div className="page-container">
                     <div className="pt-8 mb-8 flex gap-4 items-center justify-end">
                         <NavLink href="/">Overview</NavLink>
-                        <NavLink href="/background">Resume</NavLink>
+                        <NavLink href="/resume">Resume</NavLink>
                         <ContactButton />
                     </div>
                 </div>
