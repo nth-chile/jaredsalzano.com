@@ -41,8 +41,9 @@ export default async function Home() {
               />
             </div>
             <div className="prose prose-lg [&_p]:font-black">
+              <h1>Hi.</h1>
               <p>
-                Hi. I&apos;m a front-end-leaning full-stack developer based in
+                I&apos;m a front-end-leaning full-stack developer based in
                 NYC with 8+ years of experience shipping maintainable,
                 high-performance web apps for fast-moving startups, creative
                 agencies, and companies like{" "}

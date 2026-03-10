@@ -11,6 +11,7 @@ module.exports = {
                             color: 'var(--color-gray-950)',
                             // '&:hover': { color: ... },
                         },
+                        h1: { fontSize: '1em', fontWeight: '900', marginTop: '0', marginBottom: '0' },
                         h2: { fontSize: '1em', fontWeight: '700', marginTop: '1.5em', marginBottom: '0' },
                         h3: { fontSize: '1em', fontWeight: '700', marginTop: '1.25em', marginBottom: '0' },
                         h4: { fontSize: '1em', fontWeight: '700' },
@@ -21,6 +22,7 @@ module.exports = {
                 lg: {
                     css: {
                         lineHeight: '1.333',
+                        h1: { fontSize: '1em', fontWeight: '900', marginTop: '0', marginBottom: '0' },
                         h2: { fontSize: '1em', fontWeight: '700', marginTop: '1.5em', marginBottom: '0' },
                         h3: { fontSize: '1em', fontWeight: '700', marginTop: '1.25em', marginBottom: '0' },
                         h4: { fontSize: '1em', fontWeight: '700' },
@@ -29,6 +31,7 @@ module.exports = {
                 xl: {
                     css: {
                         lineHeight: '1.333',
+                        h1: { fontSize: '1em', fontWeight: '900', marginTop: '0', marginBottom: '0' },
                         h2: { fontSize: '1em', fontWeight: '700', marginTop: '1.5em', marginBottom: '0' },
                         h3: { fontSize: '1em', fontWeight: '700', marginTop: '1.25em', marginBottom: '0' },
                         h4: { fontSize: '1em', fontWeight: '700' },
