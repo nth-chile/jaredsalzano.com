@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer text-gray-800 pb-16 relative">
+    <footer className="footer text-gray-800 pt-8 pb-28 relative">
     <div className="page-container">
       <ul className="p-0">
         <li className="mx-2 inline-block">

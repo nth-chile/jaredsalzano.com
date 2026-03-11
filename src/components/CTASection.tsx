@@ -22,7 +22,7 @@ export default function CTASection({ heading, description, divider = true, card 
     }
 
     return (
-        <section className="py-12">
+        <section className="pt-12 pb-24">
             <div className="page-container">
                 <div className="prose prose-xl mb-6">
                     <h2>{heading}</h2>
