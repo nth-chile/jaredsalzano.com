@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import CookiePopup from "@/components/CookiePopup"
 
 // https://beta.nextjs.org/docs/api-reference/metadata
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <CookiePopup />
         <Analytics />
         <SpeedInsights />
         <Script
