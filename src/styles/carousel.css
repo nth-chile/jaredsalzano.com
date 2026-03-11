@@ -1,0 +1,190 @@
+.carousel-wrapper {
+  position: relative;
+
+  /*
+   * Netflix-style proportional sizing: everything is vw-based so
+   * cards, gaps, padding, and peek all scale together fluidly.
+   *
+   * Card width ≈ 100vw / visible-count.
+   * The "peek" is implicit — it's just the leftover space after
+   * N full cards + gaps + padding.
+   */
+  --carousel-padding: 8vw;
+  --carousel-gap: 3vw;
+  --carousel-cards: 1.15; /* mobile: 1 card + peek */
+
+  @media (width >= 640px) {
+    --carousel-padding: 5vw;
+    --carousel-gap: 1vw;
+    --carousel-cards: 2.15; /* tablet: 2 cards + peek */
+  }
+
+  @media (width >= 1024px) {
+    --carousel-cards: 3.15; /* desktop: 3 cards + peek */
+  }
+}
+
+/* Scrollable track */
+.carousel-track {
+  display: flex;
+  gap: var(--carousel-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--carousel-padding);
+  padding: 2rem var(--carousel-padding);
+
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Individual item */
+.carousel-item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  cursor: default;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.carousel-item-image {
+  position: relative;
+  aspect-ratio: 1.6 / 1;
+
+  /*
+   * Fully proportional card width:
+   * Available space = 100vw - 2*padding
+   * Total gap space = gap * (floor(cards) gaps, roughly cards-1 visible gaps)
+   * Card width = available / cards (cards is fractional, e.g. 3.15)
+   *
+   * This makes every pixel of viewport change scale the cards proportionally.
+   */
+  width: calc(
+    (100vw - 2 * var(--carousel-padding) - (var(--carousel-cards) - 1) * var(--carousel-gap))
+    / var(--carousel-cards)
+  );
+}
+
+/*
+ * Overlay behavior:
+ * - Desktop (hover: hover): hidden by default, full overlay on hover
+ * - Touch (hover: none): gradient+title always visible, excerpt on tap
+ */
+
+/* Desktop: overlay hidden until hover */
+@media (hover: hover) {
+  .carousel-overlay-blur {
+    backdrop-filter: blur(0.5px);
+  }
+
+  .carousel-overlay-info {
+    opacity: 0;
+  }
+
+  .carousel-item:hover .carousel-overlay-blur {
+    backdrop-filter: blur(6px);
+  }
+
+  .carousel-item:hover .carousel-overlay-info {
+    opacity: 1;
+  }
+}
+
+/* Touch: gradient+title always visible, details hidden until expanded */
+@media (hover: none) {
+  .carousel-overlay-blur {
+    backdrop-filter: blur(0px);
+  }
+
+  .carousel-overlay-info {
+    opacity: 1;
+  }
+
+  .carousel-overlay-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 300ms ease, opacity 300ms ease;
+    overflow: hidden;
+  }
+
+  .carousel-overlay-details > * {
+    min-height: 0;
+  }
+
+  .carousel-item-expanded .carousel-overlay-blur {
+    backdrop-filter: blur(6px);
+  }
+
+  .carousel-item-expanded .carousel-overlay-details {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+
+/* Edge overlays (fade gradient + arrow button) */
+.carousel-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.carousel-edge-left {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: 0.5rem;
+  background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, transparent 100%);
+}
+
+.carousel-edge-right {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  background: linear-gradient(to left, rgba(255,255,255,0.9) 0%, transparent 100%);
+}
+
+.carousel-edge-visible {
+  /* Arrows visible on wrapper hover for hover-capable devices */
+  @media (hover: hover) {
+    .carousel-wrapper:hover & {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+/* Arrow buttons */
+.carousel-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+  color: #333;
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
