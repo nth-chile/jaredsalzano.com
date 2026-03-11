@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
         quote: "Jared has been a great resource for our firm. He promptly executes on updates to our site and is a pleasure to work with.",
         shorterQuote: "Jared has been a great resource … promptly executes on updates … is a pleasure to work with.",
         name: "Susie Baker",
-        secondLine: <>Chief Operating Officer at <a href="https://spearstreetcapital.com/" target="_blank" className="logo-link"><L name="spearstreet" /><svg className="inline ml-1" style={{ marginTop: -1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.31787 9.18188L7.97472 3.52503" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /><path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /></svg></a></>,
+        secondLine: <>Chief Operating Officer at <a href="https://spearstreetcapital.com/" target="_blank" className="logo-link"><L name="spearstreet" /></a></>,
     },
     {
         id: 4234,
@@ -45,7 +45,7 @@ export const testimonials: Testimonial[] = [
         quote: "Jared was an outstanding software engineer on our team—technically sharp, collaborative, and always focused on delivering high-quality solutions. He consistently took initiative to solve complex problems and improve our product experience, often going above and beyond expectations. Any team would be lucky to have Jared's combination of technical excellence and strong communication skills.",
         shorterQuote: "Jared was an outstanding software engineer on our team—technically sharp, collaborative, and always focused on delivering high-quality solutions. He consistently took initiative … technical excellence and strong communication skills.",
         name: "David Skara",
-        secondLine: <>Product Manager at <a href="https://www.elephant.is/" target="_blank" className="logo-link"><L name="elephant" /><svg className="inline ml-1" style={{ marginTop: -1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.31787 9.18188L7.97472 3.52503" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /><path d="M3.73242 2.81812L8.68217 2.81812L8.68217 7.76786" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square" strokeLinejoin="round" /></svg></a></>,
+        secondLine: <>Product Manager at <a href="https://www.elephant.is/" target="_blank" className="logo-link"><L name="elephant" /></a></>,
     },
     {
         id: 1,
