@@ -32,7 +32,7 @@ const textLogos: [RegExp, LogoName][] = [
   [/\bPeacock\b/, 'peacock'],
   [/\bNike\b/, 'nike'],
   [/\bGucci\b/, 'gucci'],
-  [/\bRihanna\b/, 'fenty'],
+  [/\bRihanna\b/, 'rihanna'],
   [/\bWomen Deliver\b/, 'womendeliver'],
   [/\bWorld Food Programme\b/, 'wfp'],
   [/\bThe Luupe\b/, 'theluupe'],

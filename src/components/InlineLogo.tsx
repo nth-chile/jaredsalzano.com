@@ -156,8 +156,8 @@ const logos: Record<string, ReactNode> = {
       <g fill="#fff" transform="translate(-50.476 -47.183)"><path d="m80.427 73.058h4.462l-5.316 20.411h-4.489l-4.159-13.531-4.186 13.531h-4.572l-5.316-20.411h4.627l3.222 13.07 4.049-13.07h4.462l4.049 13.1z" /><path d="m104.432 93.469v-20.411h12.587v4.318h-8.235v4.319h6.6v4.146h-6.568v7.629z" transform="translate(-17.575)" /><path d="m132.984 86.128v7.342h-4.352v-20.412h7.354a6.537 6.537 0 1 1 0 13.07zm2.562-3.914a2.611 2.611 0 1 0 0-5.211h-2.534v5.211z" transform="translate(-26.514)" /></g>
     </svg>
   ),
-  fenty: (
-    <img src="/clients/fenty.png" alt="Fenty" className="!inline-block !my-[-0.15em] !mx-0 h-[1.3em] w-auto align-[-0.2em]" />
+  rihanna: (
+    <img src="/clients/rihanna.webp" alt="Rihanna" className="!inline-block !my-[-0.15em] !mx-0 h-[1.3em] w-auto align-[-0.2em]" />
   ),
   womendeliver: (
     <img src="/clients/womendeliver.jpg" alt="Women Deliver" className="!inline-block !my-[-0.15em] !mx-0 h-[1.3em] w-auto align-[-0.2em]" />
