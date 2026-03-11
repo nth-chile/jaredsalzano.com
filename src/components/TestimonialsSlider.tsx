@@ -9,73 +9,19 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import "@/styles/testimonials.css";
-import L from "@/components/InlineLogo";
-import { type ReactNode } from "react";
+import { type Testimonial, testimonials } from "@/data/testimonials";
 
-interface Testimonial {
-    id: number;
-    quote: ReactNode;
-    name: string;
-    small?: boolean;
-    secondLine?: ReactNode;
-    linkHref?: string;
-    linkText?: string;
-}
-
-const testimonials: Testimonial[] = [
-    {
-        id: 1234423,
-        quote: <>Jared was a pleasure to work with at our shared time at <span className="logo-group"><span className="logo-link"><L name="elephant" /></span>{" "}Elephant</span>. We worked alongside each other with a wide range of web technologies, including <L name="react" /> React and <L name="react" /> React Native. I could count on Jared to raise important UX, engineering and feasibility considerations. Any team would be lucky to have him.</>,
-        name: "Brittney Kernan",
-        small: true,
-        secondLine: <>Team Leader & Software Engineer at <span className="logo-group"><span className="logo-link"><L name="notion" /></span>{" "}Notion</span></>,
-    },
-    {
-        id: 4234,
-        quote: "Jared is one of the most creative and determined developers you will ever meet. He brings an all-world mindset to his programming, and is unflappable against challenges and roadblocks as they come up. He is an excellent choice for a development project.",
-        name: "Adam Spunberg",
-        small: true,
-        secondLine: <>Global Head of Operations, 100+ Accelerator, <span className="logo-group"><span className="logo-link"><L name="abinbev" /></span>{" "}AB InBev</span></>,
-    },
-    {
-        id: 1,
-        quote: "Jared was a smart choice to develop my personal portfolio. He accomplished all the things I was worried wouldn't work and was very patient with all my questions and feedback! He was very responsive and quick with updates. He even met with me in person to show me how to use the custom template he built in WordPress. The project met my vision and I am very happy with it. Thank you!",
-        name: "Denise M.",
-        small: true,
-        secondLine: "Graphic design portfolio client",
-    },
-    {
-        id: 54325,
-        quote: "Jared was an outstanding software engineer on our team—technically sharp, collaborative, and always focused on delivering high-quality solutions. He consistently took initiative to solve complex problems and improve our product experience, often going above and beyond expectations. Any team would be lucky to have Jared's combination of technical excellence and strong communication skills.",
-        name: "David Skara",
-        small: true,
-        secondLine: <>Product Manager at <span className="logo-group"><span className="logo-link"><L name="elephant" /></span>{" "}Elephant</span></>,
-    },
-    {
-        id: 2,
-        quote: "Incredibly professional and nice guy to work with. Genuinely went above and beyond the product requirements.",
-        name: "Avi Muchnick",
-        secondLine: <>Cofounder of Aviary (acquired by <span className="logo-group"><span className="logo-link"><L name="adobe" /></span>{" "}Adobe</span>)</>,
-    },
-    {
-        id: 3,
-        quote: "Jared was easy to get a hold of and plan out the project with. He was flexible as we had to change things around mid-project and stuck to timelines and budget.",
-        name: "Zach Holub",
-        secondLine: "Physical therapy website client",
-    },
-    {
-        id: 23,
-        quote: "Jared has been a great resource for our firm. He promptly executes on updates to our site and is a pleasure to work with.",
-        name: "Susie Baker",
-        linkHref: "https://spearstreetcapital.com/",
-        linkText: "spearstreetcapital.com",
-    }
-];
+const sliderOrder = [1234423, 4234, 1, 54325, 2, 3, 23];
+const compactQuoteIds = new Set([1234423, 4234, 1, 54325]);
+const testimonialsById = new Map(testimonials.map((testimonial) => [testimonial.id, testimonial]));
+const orderedTestimonials = sliderOrder
+    .map((id) => testimonialsById.get(id))
+    .filter((testimonial): testimonial is Testimonial => testimonial !== undefined);
 
 // Chunk into pairs for two-per-slide layout
 const slides: Testimonial[][] = [];
-for (let i = 0; i < testimonials.length; i += 2) {
-    slides.push(testimonials.slice(i, i + 2));
+for (let i = 0; i < orderedTestimonials.length; i += 2) {
+    slides.push(orderedTestimonials.slice(i, i + 2));
 }
 
 export default function TestimonialsSlider() {
@@ -96,9 +42,9 @@ export default function TestimonialsSlider() {
                 {slides.map((pair, slideIndex) => (
                     <SwiperSlide key={slideIndex}>
                         <div className={`pb-16 px-6 sm:px-20 grid gap-0 text-gray-800 ${pair.length > 1 ? 'max-lg:divide-y max-lg:divide-gray-400 lg:grid-cols-2 lg:[grid-template-rows:1fr_auto] lg:divide-x lg:divide-gray-400' : ''}`}>
-                            {pair.map(({ linkHref, linkText, id, name, quote, secondLine, small = false }) => (
+                            {pair.map(({ linkHref, linkText, id, name, quote, secondLine }) => (
                                 <article key={id} className={`items-start px-4 lg:px-10 max-lg:py-8 ${pair.length > 1 ? 'lg:row-span-2 lg:grid lg:[grid-template-rows:subgrid]' : 'flex flex-col'}`}>
-                                    <blockquote className={`font-serif italic text-balance mb-6 ${pair.length > 1 ? 'text-xl' : small ? 'text-2xl' : 'text-3xl'}`} style={{ maxWidth: pair.length > 1 ? undefined : small ? "800px" : "700px" }}>
+                                    <blockquote className={`font-serif italic text-balance mb-6 ${pair.length > 1 ? 'text-xl' : compactQuoteIds.has(id) ? 'text-2xl' : 'text-3xl'}`} style={{ maxWidth: pair.length > 1 ? undefined : compactQuoteIds.has(id) ? "800px" : "700px" }}>
                                         <p>"{quote}"</p>
                                     </blockquote>
                                     <cite className="not-italic self-start">
