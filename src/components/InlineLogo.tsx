@@ -164,7 +164,7 @@ const logos: Record<string, ReactNode> = {
     <img src="/clients/womendeliver.jpg" alt="Women Deliver" className="!inline-block !my-[-0.15em] !mx-0 h-[1.3em] w-auto align-[-0.2em]" />
   ),
   theluupe: (
-    <img src="/clients/theluupe.png" alt="The Luupe" className="!inline-block !my-[-0.15em] !mx-0 h-[1.3em] w-auto align-[-0.2em]" />
+    <img src="/clients/theluupe.png" alt="The Luupe" className="!inline-block !my-[-0.15em] !mx-0 h-[0.75em] w-auto align-[0.05em]" />
   ),
   schoolmeals: (
     <img src="/clients/schoolmeals.png" alt="School Meals Coalition" className="!inline-block !my-[-0.15em] !mx-0 h-[1.3em] w-auto align-[-0.2em]" />
