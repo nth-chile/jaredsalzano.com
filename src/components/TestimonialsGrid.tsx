@@ -6,11 +6,11 @@ const orderedTestimonials = gridOrder
     .map((id) => testimonialsById.get(id))
     .filter((testimonial): testimonial is Testimonial => testimonial !== undefined);
 
-function TestimonialCard({ linkHref, linkText, name, quote, secondLine }: Testimonial) {
+function TestimonialCard({ linkHref, linkText, name, shorterQuote, secondLine }: Testimonial) {
     return (
         <article className="mb-14 break-inside-avoid">
             <blockquote className="text-3xl font-black text-balance mb-4">
-                <p>{quote}</p>
+                <p>{shorterQuote}</p>
             </blockquote>
             <cite className="not-italic">
                 <p className="font-bold text-base">{name}</p>
