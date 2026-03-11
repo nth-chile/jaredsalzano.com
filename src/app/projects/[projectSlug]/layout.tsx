@@ -17,7 +17,7 @@ export default async function ProjectLayout({
     <div className="bg-white/90">
       <nav className="prose page-container pt-8 pb-10" style={{ maxWidth: "none" }}>
         <NavLink href="/">
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
           Back to home
@@ -28,11 +28,11 @@ export default async function ProjectLayout({
         <MakeProjectLinksOpenInNewTab />
       </div>
       {nextProject && (
-        <div className="pr-10 sm:pr-16 pb-8 flex justify-end">
+        <div className="page-container pb-8">
           <div className="prose">
             <NavLink href={`/projects/${nextProject.slug}`}>
               Next project
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </NavLink>
