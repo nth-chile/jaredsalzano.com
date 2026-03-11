@@ -75,6 +75,10 @@ body {
   white-space: nowrap;
 }
 
+.intro-heading {
+  line-height: 1.333 !important;
+}
+
 .logo-link {
   display: inline-block;
   vertical-align: baseline;

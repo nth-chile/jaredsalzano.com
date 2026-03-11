@@ -41,18 +41,26 @@ export default async function Home() {
               />
             </div>
             <div className="prose prose-lg [&_p]:font-black">
-              <h1>I&apos;m a front-end-leaning full-stack developer based in NYC.</h1>
-              <p>
-                I have 8+ years of experience shipping maintainable,
-                high-performance web apps for fast-moving startups, creative
-                agencies, and companies like{" "}
+              <h1 style={{ fontSize: '1.25em', fontWeight: 700 }} className="intro-heading">
+                I ship maintainable, high-performance web apps for fast-moving
+                startups, creative agencies, and companies like{" "}
                 <span className="logo-group"><span className="logo-link"><L name="apple" /></span>{" "}Apple</span>,{" "}
                 <span className="logo-group"><span className="logo-link"><L name="openai" /></span>{" "}OpenAI</span>,
-                and{" "}<span className="logo-group"><span className="logo-link"><L name="comcast" /></span>{" "}Comcast</span>. I take ownership of
-                projects from planning to deployment, collaborate effectively
-                across teams, and love solving complex technical challenges.
-                Lately, I&apos;ve been exploring LLMs and emerging AI cloud
-                services.
+                {" "}and{" "}<span className="logo-group"><span className="logo-link"><L name="comcast" /></span>{" "}Comcast</span>.
+              </h1>
+              <dl className="not-prose grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-[18px] mt-6 mb-8 font-black">
+                <dt>Experience:</dt>
+                <dd>8+ years</dd>
+                <dt>Focus:</dt>
+                <dd>Front-end-leaning full-stack development</dd>
+                <dt>Location:</dt>
+                <dd>New York City, NY</dd>
+              </dl>
+              <p>
+                I take ownership of projects from planning to deployment,
+                collaborate effectively across teams, and reduce technical debt while delivering
+                features. Lately, I&apos;ve been exploring LLMs and
+                emerging AI cloud services.
               </p>
               <p>
                 I&apos;m actively looking for a full-time role at a thoughtful,
