@@ -101,7 +101,7 @@ export default function ResumeContent({ resume }: Props) {
       {resume.experience.map((job) => (
         <div key={job.company} className="mt-8 first:mt-0">
           <div className="flex justify-between items-baseline gap-4 mb-1">
-            <h3 className="m-0 font-bold leading-tight">{(() => {
+            <h3 className="m-0 font-black leading-tight">{(() => {
               if (job.company.startsWith('Huge')) {
                 return <><L name="huge" /> <L name="elephant" />{' '}{job.company}</>
               }
@@ -110,7 +110,7 @@ export default function ResumeContent({ resume }: Props) {
             })()}</h3>
             <span className="text-sm font-bold tabular-nums shrink-0">{job.period}</span>
           </div>
-          <p className="text-[14px] italic leading-snug mt-0.5 mb-1">{logoifyText(job.description, 0)}</p>
+          <p className="text-[14px] italic leading-snug mt-0.5 mb-1 font-black">{logoifyText(job.description, 0)}</p>
 
           {job.clients && (
             <ul className="list-disc ml-5 text-[15px] leading-snug space-y-0">
