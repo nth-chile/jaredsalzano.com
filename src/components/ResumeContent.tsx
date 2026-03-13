@@ -10,11 +10,6 @@ interface Props {
 
 // Maps a name to its logo key if the name starts with a known company
 const nameToLogo: Record<string, LogoName> = {
-  'NBC': 'nbc',
-  'Apple': 'apple',
-  'OpenAI': 'openai',
-  'Comcast': 'comcast',
-  'Blackstone': 'blackstone',
   'Linode': 'linode',
   'Utility NYC': 'utility',
   'Hugo & Marie': 'hugoandmarie',
@@ -30,6 +25,10 @@ function logoForName(name: string): LogoName | null {
 // Patterns to logoify in bullet text — companies/brands only, not tech tools
 const textLogos: [RegExp, LogoName][] = [
   [/\bPeacock\b/, 'peacock'],
+  [/\bapple\.com\b/, 'apple'],
+  [/\bDALL-E\b/, 'openai'],
+  [/\bBlackstone\b/, 'blackstone'],
+  [/\bComcast\b/, 'comcast'],
   [/\bNike\b/, 'nike'],
   [/\bGucci\b/, 'gucci'],
   [/\bRihanna\b/, 'rihanna'],
@@ -112,7 +111,7 @@ export default function ResumeContent({ resume }: Props) {
           </div>
           <p className="text-[14px] italic leading-snug mt-0.5 mb-1 font-black">{logoifyText(job.description, 0)}</p>
 
-          {job.clients && (
+          {!job.bullets && job.clients && (
             <ul className="list-disc ml-5 text-[15px] leading-snug space-y-0">
               {job.clients.map((client) => (
                 <li key={client.name} className="italic">
@@ -132,9 +131,13 @@ export default function ResumeContent({ resume }: Props) {
 
           {job.bullets && (
             <ul className="list-disc ml-5 text-[15px] leading-snug">
-              {job.bullets.map((bullet, i) => (
-                <li key={i}>{renderWithLinks(bullet)}</li>
-              ))}
+              {job.bullets.map((bullet, i) => {
+                const text = typeof bullet === 'string' ? bullet : bullet.text
+                const logo = typeof bullet === 'string' ? null : bullet.logo as LogoName | undefined
+                return (
+                  <li key={i}>{logo && <><L name={logo} />{' '}</>}{renderWithLinks(text)}</li>
+                )
+              })}
             </ul>
           )}
         </div>

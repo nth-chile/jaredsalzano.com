@@ -3,11 +3,16 @@ export interface ResumeClient {
   bullets: string[]
 }
 
+export interface ResumeBullet {
+  text: string
+  logo?: string
+}
+
 export interface ResumeExperience {
   company: string
   period: string
   description: string
-  bullets?: string[]
+  bullets?: (string | ResumeBullet)[]
   clients?: ResumeClient[]
 }
 
