@@ -48,13 +48,13 @@ export default async function Home() {
                 <span className="logo-group"><span className="logo-link"><L name="openai" /></span>{" "}OpenAI</span>,
                 {" "}and{" "}<span className="logo-group"><span className="logo-link"><L name="comcast" /></span>{" "}Comcast</span>.
               </h1>
-              <dl className="not-prose grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-[18px] mt-6 mb-8 font-black">
-                <dt>Experience:</dt>
-                <dd>8+ years</dd>
-                <dt>Focus:</dt>
-                <dd>Front-end-leaning full-stack development</dd>
-                <dt>Location:</dt>
-                <dd>New York City, NY</dd>
+              <dl className="not-prose grid grid-cols-[auto_1fr] gap-x-6 gap-y-0.5 text-[14px] mt-5 mb-8">
+                <dt className="text-gray-500">Experience</dt>
+                <dd className="font-semibold">8+ years</dd>
+                <dt className="text-gray-500">Focus</dt>
+                <dd className="font-semibold">Front-end-leaning full-stack development</dd>
+                <dt className="text-gray-500">Location</dt>
+                <dd className="font-semibold">New York City, NY</dd>
               </dl>
               <p>
                 I take ownership of projects from planning to deployment,
