@@ -34,9 +34,10 @@ const OUTPUT_PATH = path.join(process.cwd(), 'public', 'resume.pdf')
 // ---- types ----------------------------------------------------------------
 
 interface ResumeClient { name: string; bullets: string[] }
+interface ResumeBullet { text: string; logo?: string }
 interface ResumeExperience {
   company: string; period: string; description: string
-  bullets?: string[]; clients?: ResumeClient[]
+  bullets?: (string | ResumeBullet)[]; clients?: ResumeClient[]
 }
 interface ResumeData {
   name: string; website: string; title: string
@@ -61,21 +62,27 @@ function renderWithLinks(text: string) {
   return esc(text).replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
 }
 
-function bullets(items: string[]) {
-  return `<ul>${items.map(b => `<li>${renderWithLinks(b)}</li>`).join('')}</ul>`
+function bulletText(b: string | ResumeBullet): string {
+  return typeof b === 'string' ? b : b.text
+}
+
+function bullets(items: (string | ResumeBullet)[]) {
+  return `<ul>${items.map(b => `<li>${renderWithLinks(bulletText(b))}</li>`).join('')}</ul>`
 }
 
 // ---- HTML template ---------------------------------------------------------
 
 function buildHtml(r: ResumeData) {
   const experience = r.experience.map(job => {
-    const clientList = job.clients
-      ? `<ul>${job.clients.map(c =>
-          `<li class="client-name">${esc(c.name)}<ul>${c.bullets.map(b =>
-            `<li>${esc(b)}</li>`).join('')}</ul></li>`
-        ).join('')}</ul>`
-      : ''
-    const bulletList = job.bullets ? bullets(job.bullets) : ''
+    let content = ''
+    if (job.clients) {
+      content = `<ul>${job.clients.map(c =>
+        `<li class="client-name">${esc(c.name)}<ul>${c.bullets.map(b =>
+          `<li>${esc(b)}</li>`).join('')}</ul></li>`
+      ).join('')}</ul>`
+    } else if (job.bullets) {
+      content = bullets(job.bullets)
+    }
     return `
       <div class="job">
         <div class="job-header">
@@ -83,7 +90,7 @@ function buildHtml(r: ResumeData) {
           <span>${esc(job.period)}</span>
         </div>
         <div class="description">${esc(job.description)}</div>
-        ${clientList}${bulletList}
+        ${content}
       </div>`
   }).join('')
 

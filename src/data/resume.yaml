@@ -6,21 +6,29 @@ experience:
   - company: Huge / Elephant (contracts for NBC, Apple, OpenAI, Comcast, Blackstone)
     period: "2018-2026"
     description: Global design and technology agency; part of Interpublic Group (IPG)
+    bullets:
+      - Evolved Peacock prototypes through multiple development cycles informed by usability testing sessions. Built with React Native for tvOS
+      - Phased out legacy tooling on apple.com/tv-pr, identified build-time bottlenecks responsible for 50% of code bundle, and introduced flexibility through generic, composable functions; coordinated API design with internal CMS team
+      - text: Navigated browser rendering limitations to deliver glassmorphism and WebGL shader effects to exacting standards
+        logo: apple
+      - Built interactive widgets showcasing DALL-E and GPT-3 and published them alongside blog articles on openai.com
+      - text: Developed in-store iPad experience deployed to 600+ Xfinity retail locations to standardize information delivery and drive conversion
+        logo: xfinity
+      - Built internal Comcast web app with PostgreSQL, GraphQL, and Next.js for data-driven project prioritization via employee ratings
+      - Created animated banner ad generator for Blackstone that produced responsive variants replicating video content for high-impact Google Ads campaign
     clients:
-      - name: NBC
+      - name: NBCUniversal / Comcast
         bullets:
           - Evolved Peacock prototypes through multiple development cycles informed by usability testing sessions. Built with React Native for tvOS
+          - Developed in-store iPad experience deployed to 600+ Xfinity retail locations to standardize information delivery and drive conversion
+          - Built internal web app with PostgreSQL, GraphQL, and Next.js for data-driven project prioritization via employee ratings
       - name: Apple
         bullets:
-          - Phased out legacy tooling on apple.com/tv-pr, identified build-time bottlenecks responsible for 50% of code bundle, and introduced flexibility through generic, composable functions; coordinated API design with Apple's internal CMS team
+          - Phased out legacy tooling on apple.com/tv-pr, identified build-time bottlenecks responsible for 50% of code bundle, and introduced flexibility through generic, composable functions; coordinated API design with internal CMS team
           - Navigated browser rendering limitations to deliver glassmorphism and WebGL shader effects to exacting standards
       - name: OpenAI
         bullets:
           - Built interactive widgets showcasing DALL-E and GPT-3 and published them alongside blog articles on openai.com
-      - name: Comcast / Xfinity
-        bullets:
-          - Developed in-store iPad experience deployed to 600+ Xfinity retail locations to standardize information delivery and drive conversion
-          - Built internal web app with PostgreSQL, GraphQL, and Next.js for data-driven project prioritization via employee ratings
       - name: Blackstone
         bullets:
           - Created animated banner ad generator that produced responsive variants replicating video content for high-impact Google Ads campaign
