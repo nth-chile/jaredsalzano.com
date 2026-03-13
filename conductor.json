@@ -1,7 +1,7 @@
 {
   "scripts": {
     "setup": "npm install",
-    "run": "npm run dev",
+    "run": "rm -f .next/dev/lock && npm run dev",
     "archive": ""
   }
 }
