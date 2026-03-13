@@ -64,7 +64,15 @@ export default function ProjectsCarousel({
     const el = scrollRef.current;
     const close = () => setExpandedIndex(null);
     el?.addEventListener("scroll", close, { passive: true });
-    return () => el?.removeEventListener("scroll", close);
+    const handleTapOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(".carousel-item")) close();
+    };
+    document.addEventListener("pointerdown", handleTapOutside);
+    return () => {
+      el?.removeEventListener("scroll", close);
+      document.removeEventListener("pointerdown", handleTapOutside);
+    };
   }, [expandedIndex]);
 
   const scroll = useCallback((direction: 1 | -1) => {
@@ -133,61 +141,47 @@ export default function ProjectsCarousel({
                   shadow
                   material3d
                 >
-                  {/* Always-visible title (touch) / hover overlay (desktop) */}
+                  {/* Solid black overlay (desktop hover) / touch expanded */}
+                  <div className="carousel-overlay-bg absolute inset-0 z-20 bg-black/90 pointer-events-none transition-opacity duration-300" />
+                  {/* Bottom gradient for touch title readability */}
                   <div
-                    className="carousel-overlay-blur absolute inset-0 z-20 pointer-events-none transition-[backdrop-filter] duration-300"
-                    style={{
-                      mask: "linear-gradient(to top, white 0%, white 30%, transparent 90%)",
-                    }}
+                    className="carousel-overlay-gradient absolute inset-0 z-20 pointer-events-none transition-opacity duration-300"
+                    style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)" }}
                   />
-                  {/* Gradient + text overlay */}
+                  {/* Text overlay */}
                   <div
                     className="carousel-overlay-info absolute inset-0 z-30 pointer-events-none transition-opacity duration-300"
-                    style={{ transform: "translateZ(0)" }}
                   >
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)",
-                      }}
-                    />
-                    <div
-                      className="absolute inset-0 flex flex-col justify-end p-5"
-                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
-                    >
-                      <h2
-                        className="text-white font-semibold text-lg mb-1"
-                        style={{
-                          textShadow: "0 1px 3px rgba(0,0,0,0.3)",
-                        }}
-                      >
+                    <div className="absolute inset-0 flex flex-col justify-end px-3 pt-3 pb-4 sm:p-5">
+                      <h2 className="text-white font-semibold text-lg leading-snug">
                         {frontMatter.title}
                       </h2>
                       {/* Excerpt + Read more: visible on hover (desktop) or when expanded (touch) */}
                       <div className="carousel-overlay-details">
-                        {frontMatter.excerpt && (
-                          <p className="text-white/85 text-sm line-clamp-3 leading-snug">
-                            {frontMatter.excerpt}
-                          </p>
-                        )}
-                        {hasContent && (
-                          <p className="text-white/85 text-sm mt-2 mb-0">
-                            Read more{" "}
-                            <svg
-                              className="inline w-3 h-3 ml-0.5"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <path d="M5 12h14" />
-                              <path d="m12 5 7 7-7 7" />
-                            </svg>
-                          </p>
-                        )}
+                        <div>
+                          {frontMatter.excerpt && (
+                            <p className="text-white/85 text-sm line-clamp-3 leading-snug pt-1">
+                              {frontMatter.excerpt}
+                            </p>
+                          )}
+                          {hasContent && (
+                            <p className="text-white/85 text-sm font-medium mt-2 mb-0 hover:underline pointer-events-auto">
+                              Read more{" "}
+                              <svg
+                                className="inline w-3 h-3 ml-0.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                              </svg>
+                            </p>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

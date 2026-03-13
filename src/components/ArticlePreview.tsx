@@ -13,23 +13,11 @@ export default function ArticlePreview({
 }) {
   const overlay = (
     <>
-      {/* Desktop hover overlay */}
-      <div
-        className="article-preview-blur absolute inset-0 z-20 backdrop-blur-0 transition-[backdrop-filter] duration-300 group-hover:backdrop-blur-[6px] pointer-events-none"
-        style={{
-          mask: "linear-gradient(to top, white 0%, white 30%, transparent 90%)",
-        }}
-      />
+      {/* Desktop hover overlay: solid black with white text */}
+      <div className="article-preview-overlay absolute inset-0 z-20 bg-black/90 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
       <div className="article-preview-overlay absolute inset-0 z-20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)",
-          }}
-        />
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-end p-5" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}>
-          <h3 className="text-white font-semibold text-lg mb-1" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}>
+        <div className="absolute inset-0 flex flex-col justify-end p-5">
+          <h3 className="text-white font-semibold text-lg leading-snug mb-1">
             {frontMatter.title}
           </h3>
           {frontMatter.excerpt && (
@@ -38,7 +26,7 @@ export default function ArticlePreview({
             </p>
           )}
           {hasContent && (
-            <p className="text-white/85 text-sm mt-2 mb-0">
+            <p className="text-white/85 text-sm font-medium mt-2 mb-0 hover:underline pointer-events-auto">
               Read more <svg className="inline w-3 h-3 ml-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </p>
           )}

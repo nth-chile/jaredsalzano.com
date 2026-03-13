@@ -51,6 +51,10 @@
   color: inherit;
 }
 
+a.carousel-item {
+  cursor: pointer;
+}
+
 .carousel-item-image {
   position: relative;
   aspect-ratio: 1.6 / 1;
@@ -77,18 +81,12 @@
 
 /* Desktop: overlay hidden until hover */
 @media (hover: hover) {
-  .carousel-overlay-blur {
-    backdrop-filter: blur(0.5px);
-  }
-
+  .carousel-overlay-bg,
   .carousel-overlay-info {
     opacity: 0;
   }
 
-  .carousel-item:hover .carousel-overlay-blur {
-    backdrop-filter: blur(6px);
-  }
-
+  .carousel-item:hover .carousel-overlay-bg,
   .carousel-item:hover .carousel-overlay-info {
     opacity: 1;
   }
@@ -96,8 +94,13 @@
 
 /* Touch: gradient+title always visible, details hidden until expanded */
 @media (hover: none) {
-  .carousel-overlay-blur {
-    backdrop-filter: blur(0px);
+  .carousel-overlay-bg {
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .carousel-overlay-gradient {
+    opacity: 1;
   }
 
   .carousel-overlay-info {
@@ -112,17 +115,29 @@
     overflow: hidden;
   }
 
-  .carousel-overlay-details > * {
+  .carousel-overlay-details > div {
     min-height: 0;
+    overflow: hidden;
   }
 
-  .carousel-item-expanded .carousel-overlay-blur {
-    backdrop-filter: blur(6px);
+  .carousel-item-expanded .carousel-overlay-bg {
+    opacity: 1;
+  }
+
+  .carousel-item-expanded .carousel-overlay-gradient {
+    opacity: 0;
   }
 
   .carousel-item-expanded .carousel-overlay-details {
     grid-template-rows: 1fr;
     opacity: 1;
+  }
+}
+
+/* Gradient only for touch - hidden on desktop */
+@media (hover: hover) {
+  .carousel-overlay-gradient {
+    display: none;
   }
 }
 
@@ -161,6 +176,12 @@
       opacity: 1;
       pointer-events: auto;
     }
+  }
+}
+
+@media (hover: none) {
+  .carousel-edge {
+    display: none;
   }
 }
 
