@@ -11,7 +11,7 @@ import 'swiper/css/autoplay';
 import "@/styles/testimonials.css";
 import { type Testimonial, testimonials } from "@/data/testimonials";
 
-const sliderOrder = [1234423, 4234, 1, 54325, 2, 3, 23];
+const sliderOrder = [1234423, 4234, 1, 54325, 2, 3, 23, 7];
 const compactQuoteIds = new Set([1234423, 4234, 1, 54325]);
 const testimonialsById = new Map(testimonials.map((testimonial) => [testimonial.id, testimonial]));
 const orderedTestimonials = sliderOrder
