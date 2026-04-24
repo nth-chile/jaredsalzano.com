@@ -50,7 +50,7 @@ export const testimonials: Testimonial[] = [
     {
         id: 1,
         quote: <>Jared was a smart choice to develop my personal portfolio. He accomplished all the things I was worried wouldn&apos;t work and was very patient with all my questions and feedback! He was very responsive and quick with updates. He even met with me in person to show me how to use the custom template he built in <span className="logo-group"><span className="logo-link"><L name="wordpress" /></span>{" "}WordPress</span>. The project met my vision and I am very happy with it. Thank you!</>,
-        shorterQuote: <>He accomplished all the things I was worried wouldn&apos;t work and was very patient with all my questions and feedback! He was very responsive and quick with updates. He even met with me in person to show me how to use the custom template he built in <span className="logo-group"><span className="logo-link"><L name="wordpress" /></span>{" "}WordPress</span>. The project met my vision and I am very happy with it.</>,
+        shorterQuote: <>He accomplished all the things I was worried wouldn&apos;t work … very responsive … He even met with me in person to show me how to use the custom template he built in <span className="logo-group"><span className="logo-link"><L name="wordpress" /></span>{" "}WordPress</span>. The project met my vision and I am very happy with it.</>,
         name: "Denise M.",
         secondLine: "Graphic design portfolio client",
     },
@@ -60,5 +60,14 @@ export const testimonials: Testimonial[] = [
         shorterQuote: "Jared was easy to get a hold of and plan out the project with. He was flexible as we had to change things around mid-project and stuck to timelines and budget.",
         name: "Zach Holub",
         secondLine: "Physical therapy website client",
+    },
+    {
+        id: 7,
+        quote: "Jared Salzano came to my rescue a few times when I had website problems and he was always knowledgable, quick and efficient. When I felt that my website was long overdue for an overhaul, I found Jared to be a brilliant collaborator both in his technical skills and in his creative ideas. He was patient and courteous when it came to my lack of understanding. I would recommend Jared most heartily to anyone like me who wants a bright, cooperative and kind partner. I’m most grateful for the experience and the result of our work together.",
+        shorterQuote: "I found Jared to be a brilliant collaborator … patient and courteous … a bright, cooperative and kind partner.",
+        name: "John Simon",
+        secondLine: "Record producer and songwriter",
+        linkHref: "https://johnsimonmusic.net/",
+        linkText: "johnsimonmusic.net",
     }
 ];
